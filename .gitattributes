@@ -1,0 +1,5 @@
+data_storage/iiifcache/.keep merge=ours
+drupal/scripts/archipelago/deploy.sh merge=ours
+drupal/scripts/archipelago/update_deployed.sh merge=ours
+deploy/ec2-docker/docker-compose.yml merge=ours
+drupal/composer.json merge=ours
