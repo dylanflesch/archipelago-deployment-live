@@ -6,7 +6,7 @@ tags:
 ---
 documentation-->
 
-# Archipelago Deployment Live
+# NYPR's Archipelago Deployment Live
 
 A Cloud / Local production ready Archipelago Deployment using Docker and soon Kubernetes.
 
