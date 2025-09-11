@@ -10,7 +10,7 @@ documentation-->
 
 A Cloud / Local production ready Archipelago Deployment using Docker and soon Kubernetes.
 
-Last updated: June 19th 2025.
+Last updated: September 2025.
 
 
 ## What is this repo for?
