@@ -196,7 +196,7 @@ services:
       # MINIO_CACHE_AFTER: 3
       # MINIO_CACHE_WATERMARK_LOW: 70
       # MINIO_CACHE_WATERMARK_HIGH: 90
-    command: gateway s3 https://s3.amazonaws.com/ --console-address ":9001"
+    command: gateway s3 https://s3.us-east-2.amazonaws.com/ --console-address ":9001"
   redis:
     container_name: esmero-redis
     image: redis:6.2-alpine
