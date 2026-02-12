@@ -1,0 +1,11 @@
+uuid: cf8a5e51-a578-48a3-a2ef-a1ac29ae2768
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.digital_object_collection_for_episodes
+label: 'Digital Object Collection for Episodes and Segments (NYPR)'
+description: "This view mode (an abstraction that does nothing on it's own) get's coupled with a logic check (handled by the ADO Type to View Mode Mapping Form Add to Default shortcuts), and it relies on you having some metadata display configured that you'd like to call for it. I'm calling: https://archipelago-dev.nyprarchives.org/metadatadisplay/24. But the thing to remember, that actually makes all this click into place is to change the \"active display settings\" on a sample asset of the type you want this to apply to. Go into active display settings on a single asset, and then choose your preferred strawberry formatter you'd like to use (maybe you have to use Frutilla to choose a custom metadata display, in that case drag the main strawberry field down to disabled, then click the gear icon (far right of your strawberry row) and change the metadata display in the second field there."
+targetEntityType: node
+cache: true

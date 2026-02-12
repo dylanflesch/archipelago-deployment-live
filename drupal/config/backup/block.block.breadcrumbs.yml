@@ -1,0 +1,25 @@
+uuid: 9efe7afd-f7a5-4a3f-bc6c-d7e7ad683690
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - archipelago_subtheme
+id: breadcrumbs
+theme: archipelago_subtheme
+region: highlighted
+weight: -6
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/search*\r\n/search_grid*\r\n/node/*\r\n/amiset/*"

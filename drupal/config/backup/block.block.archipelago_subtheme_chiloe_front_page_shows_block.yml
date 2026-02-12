@@ -1,0 +1,30 @@
+uuid: 31590441-09b8-43b7-b194-5df7a6dd915e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.front_page_collection_listing_nypr
+  module:
+    - system
+    - views
+  theme:
+    - archipelago_subtheme_chiloe
+id: archipelago_subtheme_chiloe_front_page_shows_block
+theme: archipelago_subtheme_chiloe
+region: content_top
+weight: 0
+provider: null
+plugin: 'views_block:front_page_collection_listing_nypr-front_page_shows_block'
+settings:
+  id: 'views_block:front_page_collection_listing_nypr-front_page_shows_block'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+  exposed: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

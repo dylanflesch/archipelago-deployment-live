@@ -1,0 +1,22 @@
+uuid: 733658ed-bd2b-4881-a812-4a27675d1a02
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - archipelago_subtheme_chiloe
+_core:
+  default_config_hash: XJqWwLt1LDCnazcEN6QkJmCLjk4R0__-8s0OO9xeNjg
+id: archipelago_subtheme_chiloe_messages
+theme: archipelago_subtheme_chiloe
+region: highlighted
+weight: -8
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

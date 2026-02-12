@@ -1,0 +1,93 @@
+uuid: 412a9ca3-36f4-46be-8c20-55f626d648b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.strawberryfield_processed_metadata
+    - field.field.node.digital_object_collection.body
+    - field.field.node.digital_object_collection.field_descriptive_metadata
+    - node.type.digital_object_collection
+  module:
+    - ds
+    - field_layout
+    - format_strawberryfield
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_twocol
+      library: layout_discovery/twocol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+    regions:
+      top:
+        - node_title
+      first:
+        - field_descriptive_metadata
+        - links
+      second:
+        - node_changed_date
+        - 'display_field_copy:node-raw_metadata'
+    fields:
+      'display_field_copy:node-raw_metadata':
+        plugin_id: 'display_field_copy:node-raw_metadata'
+        weight: 4
+        label: hidden
+        formatter: strawberry_metadata_formatter
+        settings:
+          formatter:
+            label: 'Descriptive Metadata'
+            specs: 'http://schema.org'
+            metadatadisplayentity_uuid: 0ccc85b4-ed72-4c58-b585-ba652ebcfcaf
+            metadatadisplayentity_uselabel: '0'
+      node_changed_date:
+        plugin_id: node_changed_date
+        weight: 3
+        label: hidden
+        formatter: ds_post_date_long
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h2
+          class: 'fas fa-archive'
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: node.digital_object_collection.strawberryfield_processed_metadata
+targetEntityType: node
+bundle: digital_object_collection
+mode: strawberryfield_processed_metadata
+content:
+  field_descriptive_metadata:
+    type: strawberry_metadata_formatter
+    label: hidden
+    settings:
+      iiif_base_url: 'http://localhost:8183/iiif/2'
+      iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
+      use_iiif_globals: '1'
+      label: Thumbnail
+      specs: 'http://schema.org'
+      metadatadisplayentity_uuid: 7ca9ef30-1535-4616-b3b2-201dcc7d6a69
+      metadatadisplayentity_uselabel: '0'
+      upload_json_key_source: ''
+      embargo_json_key_source: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  body: true
+  content_moderation_control: true
+  langcode: true
+  search_api_excerpt: true

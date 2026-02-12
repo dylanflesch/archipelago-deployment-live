@@ -1,0 +1,31 @@
+uuid: de1d746a-4dfe-4357-b0c5-e7117d9835e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_with_twig_templating_
+    - field.field.block_content.block_with_twig_templating_.body
+    - field.field.block_content.block_with_twig_templating_.field_twig_content
+  module:
+    - twig_field
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: block_content.block_with_twig_templating_.default
+targetEntityType: block_content
+bundle: block_with_twig_templating_
+mode: default
+content:
+  field_twig_content:
+    type: twig
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  langcode: true
+  search_api_excerpt: true

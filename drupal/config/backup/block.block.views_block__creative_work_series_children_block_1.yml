@@ -1,0 +1,39 @@
+uuid: 34280ad6-5438-471f-9c5b-6b584f1207d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.creative_work_series_children
+  module:
+    - node
+    - system
+    - views
+  theme:
+    - archipelago_subtheme
+id: views_block__creative_work_series_children_block_1
+theme: archipelago_subtheme
+region: content
+weight: -21
+provider: null
+plugin: 'views_block:creative_work_series_children-block_1'
+settings:
+  id: 'views_block:creative_work_series_children-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+  exposed: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      digital_object_collection: digital_object_collection
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/node/*/edit\r\n*/add/*\r\n/search"

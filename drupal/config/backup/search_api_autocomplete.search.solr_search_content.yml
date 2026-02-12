@@ -1,0 +1,51 @@
+uuid: fb66df24-68af-478d-ae17-774163d7d4d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.default_solr_index
+    - views.view.solr_search_content
+  module:
+    - views
+id: solr_search_content
+label: 'Solr search content'
+index_id: default_solr_index
+suggester_settings:
+  live_results:
+    fields:
+      - rendered_item
+      - title
+    highlight:
+      enabled: false
+      field: ''
+    suggest_keys: false
+    view_modes:
+      'entity:node':
+        article: ''
+        digital_object: ''
+        digital_object_collection: ''
+        page: ''
+        webform: ''
+      strawberryfield_flavor_datasource:
+        digital_object: ''
+        digital_object_collection: ''
+  server:
+    fields:
+      - rendered_item
+      - title
+suggester_weights:
+  live_results: 0
+  server: 0
+suggester_limits: {  }
+search_settings:
+  'views:solr_search_content':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 3
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: true

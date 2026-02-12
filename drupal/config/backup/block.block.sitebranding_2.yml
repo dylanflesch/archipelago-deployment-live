@@ -1,0 +1,23 @@
+uuid: 9856ca5d-4583-4857-9dae-6ea3d60a6587
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - archipelago_subtheme
+id: sitebranding_2
+theme: archipelago_subtheme
+region: top_header
+weight: -10
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: true
+visibility: {  }

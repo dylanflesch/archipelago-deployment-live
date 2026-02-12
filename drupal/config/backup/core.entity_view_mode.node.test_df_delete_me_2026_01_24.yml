@@ -1,0 +1,11 @@
+uuid: f93a720e-5c86-4f85-bc5d-ac2f8610d437
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.test_df_delete_me_2026_01_24
+label: 'test DF delete me 2026-01-24'
+description: delete
+targetEntityType: node
+cache: true
