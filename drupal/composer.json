@@ -92,7 +92,7 @@
         "react/event-loop": "^1.5",
         "react/promise": "^3.2",
         "solarium/solarium": "^6",
-        "strawberryfield/format_strawberryfield": "1.6.0.x-dev",
+        "strawberryfield/format_strawberryfield": "1.7.0.x-dev as 1.6.0.x-dev",
         "strawberryfield/strawberry_runners": "1.0.0.x-dev",
         "strawberryfield/strawberryfield": "1.6.0.x-dev",
         "strawberryfield/webform_strawberryfield": "1.6.0.x-dev",
