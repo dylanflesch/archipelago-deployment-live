@@ -22,7 +22,7 @@
     "require": {
         "php": ">=8.1",
         "mglaman/composer-drupal-lenient": "^1",
-        "archipelago/ami": "1.0.0.x-dev",
+        "archipelago/ami": "dev-ISSUE-259-D10 as 1.0.0.x-dev",
         "archipelago/archipelago_subtheme": "1.5.0.x-dev",
         "aws/aws-php-sns-message-validator": "^1.5",
         "aws/aws-sdk-php": "^3.63",
