@@ -93,8 +93,8 @@
         "react/promise": "^3.2",
         "solarium/solarium": "^6",
         "strawberryfield/format_strawberryfield": "1.7.0.x-dev as 1.6.0.x-dev",
-        "strawberryfield/strawberry_runners": "1.0.0.x-dev",
-        "strawberryfield/strawberryfield": "1.6.0.x-dev",
+        "strawberryfield/strawberry_runners": "dev-ISSUE-117-D10 as 1.0.0.x-dev",
+        "strawberryfield/strawberryfield": "dev-ISSUE-379-D10 as 1.6.0.x-dev",
         "strawberryfield/webform_strawberryfield": "1.6.0.x-dev",
         "swaggest/json-schema": "^0.12.10",
         "vlucas/phpdotenv": "^5.6",
@@ -123,7 +123,8 @@
         "drupal/codemirror_editor": "^2.0",
         "ankitpokhrel/tus-php": "^2.4",
         "archipelago/archipelago_subtheme_chiloe": "dev-main",
-        "drupal/asset_injector": "^2.21"
+        "drupal/asset_injector": "^2.21",
+        "drupal/samlauth": "3.x-dev@dev"
     },
     "require-dev": {
         "drupal/core-dev": "^10.5",
