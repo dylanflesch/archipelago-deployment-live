@@ -1,0 +1,53 @@
+uuid: 20d19877-8a90-4594-abcd-e102a0ded348
+langcode: en
+status: true
+dependencies: {  }
+id: physical_formats
+label: 'Physical Formats'
+category: General
+likert: false
+options: |-
+  '1 inch audio tape': '1 inch audio tape'
+  '1/2 inch audio tape': '1/2 inch audio tape'
+  '1/4 inch audio tape': '1/4 inch audio tape'
+  '3/4 inch videotape: U-matic': '3/4 inch videotape: U-matic'
+  '8mm: Hi8 Video': '8mm: Hi8 Video'
+  'Art original': 'Art original'
+  'Art print': 'Art print'
+  'Art reproduction': 'Art reproduction'
+  'Audio cart': 'Audio cart'
+  'Audio cassette': 'Audio cassette'
+  BD-Videodisc: BD-Videodisc
+  'Beta PCM F-1': 'Beta PCM F-1'
+  Betacam: Betacam
+  'Betacam Digital (Digi Beta)': 'Betacam Digital (Digi Beta)'
+  'Betacam SP': 'Betacam SP'
+  Book: Book
+  Box: Box
+  CD-Audio: CD-Audio
+  CD-R: CD-R
+  CD-ROM: CD-ROM
+  DAT: DAT
+  'DBX 700 VHS tape': 'DBX 700 VHS tape'
+  'DDS Data Tape': 'DDS Data Tape'
+  DTRS: DTRS
+  'DV Mini': 'DV Mini'
+  'DVCam: Sony': 'DVCam: Sony'
+  DVD: DVD
+  DVD+R: DVD+R
+  DVD-Audio: DVD-Audio
+  DVD-R: DVD-R
+  'Film: 16mm': 'Film: 16mm'
+  Flexidisc: Flexidisc
+  'Hard Drive': 'Hard Drive'
+  HDCAM: HDCAM
+  'Lacquer disc': 'Lacquer disc'
+  'LP Record': 'LP Record'
+  'LP Record (45)': 'LP Record (45)'
+  Minidisc: Minidisc
+  'Music score': 'Music score'
+  Paper: Paper
+  Photograph: Photograph
+  'Shellac disc': 'Shellac disc'
+  'Sound disc': 'Sound disc'
+  VHS: VHS

@@ -1,0 +1,11 @@
+uuid: a19eaf80-333e-4664-89df-a242f497ab37
+langcode: en
+status: true
+dependencies: {  }
+id: instantiation_type
+label: 'Instantation Type'
+category: General
+likert: false
+options: |-
+  Physical: Physical
+  Digital: Digital

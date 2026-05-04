@@ -1,0 +1,13 @@
+uuid: 5a34256b-0640-454f-b7de-dfb2daac72a4
+langcode: en
+status: true
+dependencies: {  }
+id: physical_format
+label: 'Physical Format'
+pluginid: jmespath
+pluginconfig:
+  source_key: physical_format
+  is_date: false
+  is_date_range: false
+  exposed_key: physical_format
+active: true

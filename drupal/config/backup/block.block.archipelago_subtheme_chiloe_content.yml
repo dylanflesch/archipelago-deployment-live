@@ -1,0 +1,22 @@
+uuid: 84f45754-7bd6-4ed9-91fd-591ad03dfe32
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - archipelago_subtheme_chiloe
+_core:
+  default_config_hash: YRY68JWkaUiGeZlWMv1nzeIgDm0ZZwXYgpqUpLFzwAY
+id: archipelago_subtheme_chiloe_content
+theme: archipelago_subtheme_chiloe
+region: content
+weight: -22
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,55 @@
+uuid: 6f213501-cf46-4a37-a652-2754cb0913e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - codemirror_editor
+    - format_strawberryfield
+    - options
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: metadatadisplay_entity.metadatadisplay_entity.default
+targetEntityType: metadatadisplay_entity
+bundle: metadatadisplay_entity
+mode: default
+content:
+  mimetype:
+    type: list_key
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  twig:
+    type: codemirror_editor
+    label: hidden
+    settings:
+      mode: text/x-twig
+      lineWrapping: true
+      lineNumbers: true
+      foldGutter: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  user_id:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  link: true
+  search_api_excerpt: true

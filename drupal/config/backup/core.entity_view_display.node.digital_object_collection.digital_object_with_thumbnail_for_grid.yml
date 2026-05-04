@@ -1,0 +1,82 @@
+uuid: 55db849d-dc24-48c1-bd3a-7dc841f2683e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.digital_object_with_thumbnail_for_grid
+    - field.field.node.digital_object_collection.body
+    - field.field.node.digital_object_collection.field_descriptive_metadata
+    - node.type.digital_object_collection
+  module:
+    - ds
+    - field_layout
+    - format_strawberryfield
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - node_title
+        - field_descriptive_metadata
+        - search_api_excerpt
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h2
+          class: ''
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: node.digital_object_collection.digital_object_with_thumbnail_for_grid
+targetEntityType: node
+bundle: digital_object_collection
+mode: digital_object_with_thumbnail_for_grid
+content:
+  field_descriptive_metadata:
+    type: strawberry_metadata_formatter
+    label: hidden
+    settings:
+      iiif_base_url: 'http://localhost:8183/iiif/2'
+      iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
+      use_iiif_globals: '1'
+      label: 'Descriptive Metadata'
+      specs: 'http://schema.org'
+      metadatadisplayentity_uuid: 7ca9ef30-1535-4616-b3b2-201dcc7d6a69
+      metadatadisplayentity_uselabel: '0'
+      upload_json_key_source: ''
+      embargo_json_key_source: ''
+      hide_on_embargo: ''
+    third_party_settings: {  }
+    weight: 1
+    region: ds_content
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: ds_content
+hidden:
+  body: true
+  content_moderation_control: true
+  langcode: true
+  links: true

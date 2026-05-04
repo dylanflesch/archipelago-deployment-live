@@ -1,0 +1,39 @@
+uuid: 7937a7ce-b286-40a4-a478-26d36c0d4e60
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.collection_membership
+  module:
+    - node
+    - system
+    - views
+  theme:
+    - seven
+id: views_block__collection_membership_block_1_2
+theme: seven
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:collection_membership-block_1'
+settings:
+  id: 'views_block:collection_membership-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+  exposed: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      digital_object_collection: digital_object_collection
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '/node/*'

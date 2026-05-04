@@ -1,0 +1,92 @@
+uuid: e889ea0c-fecb-4677-82fb-a13b7b77b6fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.digital_object_viewmode_fullitem
+    - field.field.node.digital_object.body
+    - field.field.node.digital_object.field_descriptive_metadata
+    - node.type.digital_object
+  module:
+    - ds
+    - field_layout
+    - strawberryfield
+    - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+    regions:
+      ds_content:
+        - links
+        - 'display_field_copy:node-formatted_metadata'
+        - 'display_field_copy:node-field_descriptive_metadata_image'
+        - field_descriptive_metadata
+    fields:
+      'display_field_copy:node-field_descriptive_metadata_image':
+        plugin_id: 'display_field_copy:node-field_descriptive_metadata_image'
+        weight: 2
+        label: hidden
+        formatter: strawberry_metadata_formatter
+        settings:
+          formatter:
+            label: 'Descriptive Metadata'
+            specs: 'http://schema.org'
+            metadatadisplayentity_uuid: bde1cb38-e1b8-4f2d-bc1c-bff646d2e8b7
+            metadatadisplayentity_uselabel: '0'
+      'display_field_copy:node-formatted_metadata':
+        plugin_id: 'display_field_copy:node-formatted_metadata'
+        weight: 1
+        label: hidden
+        formatter: strawberry_media_formatter
+        settings:
+          formatter:
+            iiif_base_url: 'http://localhost:8183/iiif/2'
+            iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
+            json_key_source: 'as:image'
+            max_width: '0'
+            max_height: '520'
+            icons_prefixurl: 'https://cdn.jsdelivr.net/gh/Benomrans/openseadragon-icons@main/images/'
+            webannotations: true
+            webannotations_tool: both
+            webannotations_opencv: true
+            webannotations_betterpolygon: true
+            use_iiif_globals: '1'
+            iiif_group: true
+            thumbnails: true
+            upload_json_key_source: ''
+            embargo_json_key_source: ''
+id: node.digital_object.digital_object_viewmode_fullitem
+targetEntityType: node
+bundle: digital_object
+mode: digital_object_viewmode_fullitem
+content:
+  field_descriptive_metadata:
+    type: strawberry_default_formatter
+    label: hidden
+    settings:
+      limit_access: edit
+    third_party_settings: {  }
+    weight: 3
+    region: ds_content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+hidden:
+  body: true
+  content_moderation_control: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,76 @@
+uuid: a98e9988-db28-4eb4-8ed7-cadd66081d9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.digital_object
+    - node.type.digital_object_collection
+  module:
+    - content_moderation
+_core:
+  default_config_hash: T_JxNjYlfoRBi7Bj1zs5Xv9xv1btuBkKp5C1tNrjMhI
+id: editorial
+label: Editorial
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Unpublished
+      weight: 5
+      published: false
+      default_revision: true
+    draft:
+      label: Draft
+      weight: -5
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 0
+      published: true
+      default_revision: true
+  transitions:
+    archive:
+      label: Unpublish
+      from:
+        - archived
+        - published
+      to: archived
+      weight: -1
+    archived_draft:
+      label: 'Restore to Draft'
+      from:
+        - archived
+      to: draft
+      weight: 1
+    archived_published:
+      label: Restore
+      from:
+        - archived
+      to: published
+      weight: 2
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: -3
+    publish:
+      label: Publish
+      from:
+        - draft
+        - published
+      to: published
+      weight: -2
+    unpublished:
+      label: 'Draft to Unpublished'
+      from:
+        - draft
+      to: archived
+      weight: 0
+  entity_types:
+    node:
+      - digital_object
+      - digital_object_collection
+  default_moderation_state: archived

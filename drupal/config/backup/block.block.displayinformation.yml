@@ -1,0 +1,39 @@
+uuid: 06ba18cc-da40-4fce-b9e6-25b8314c732c
+langcode: en
+status: true
+dependencies:
+  module:
+    - format_strawberryfield
+    - node
+    - user
+  theme:
+    - archipelago_subtheme_chiloe
+id: displayinformation
+theme: archipelago_subtheme_chiloe
+region: sidebar_first
+weight: -1
+provider: null
+plugin: format_strawberryfield_display_information
+settings:
+  id: format_strawberryfield_display_information
+  label: 'Strawberry Field Block: Display information'
+  label_display: visible
+  provider: format_strawberryfield
+  context_mapping:
+    node: '@node.node_route_context:node'
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      digital_object: digital_object
+      digital_object_collection: digital_object_collection

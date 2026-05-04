@@ -1,0 +1,13 @@
+active: true
+time_to_expire: 0
+drush_path: /var/www/html/vendor/drush/drush/drush
+home_path: ''
+search_api_indexes:
+  - default_solr_index
+search_api_indexes_count: 10
+queues:
+  - ami_ingest_ado
+  - ami_csv_ado
+  - strawberryrunners_process_background
+  - strawberryrunners_process_index
+  - sbf_compost_file

@@ -1,0 +1,36 @@
+uuid: 45f1971a-51ff-4635-801c-ffce40491372
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.is_member_of_content_title
+  module:
+    - context
+    - facets
+    - system
+  theme:
+    - archipelago_subtheme
+id: ismemberofcontenttitle
+theme: archipelago_subtheme
+region: sidebar_second
+weight: -19
+provider: null
+plugin: 'facet_block:is_member_of_content_title'
+settings:
+  id: 'facet_block:is_member_of_content_title'
+  label: 'Part of Collection'
+  label_display: visible
+  provider: facets
+  block_id: ismemberofcontenttitle
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    context_mapping: {  }
+    view_inclusion:
+      view-solr_search_content-page_1: view-solr_search_content-page_1
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: '/search_grid*'

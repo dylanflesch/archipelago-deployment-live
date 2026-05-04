@@ -1,0 +1,28 @@
+uuid: 61b4c55b-97f7-4db0-b6ed-3cd0b8b54213
+langcode: en
+status: true
+dependencies: {  }
+id: pager
+label: pager
+weight: '-9'
+pluginconfig:
+  source_type: asstructure
+  ado_type: 'Document,Book,Article, ScrapbookPage, InsetItem, Page'
+  jsonkey:
+    'as:image': 'as:image'
+    'as:document': 'as:document'
+    'as:audio': 0
+    'as:video': 0
+    'as:text': 0
+    'as:application': 0
+  output_destination:
+    plugin: plugin
+  mime_type: 'application/pdf,image/tiff,image/jpeg,image/jp2'
+  language_key: language_iso639_3
+  language_default: eng
+  timeout: '10'
+  weight: '0'
+pluginid: filesequence
+active: true
+parent: ''
+depth: 0

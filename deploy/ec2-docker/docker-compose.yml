@@ -43,13 +43,13 @@ services:
   php:
     container_name: esmero-php
     restart: always
-    image: "esmero/php-8.3-fpm:1.5.0-multiarch"
+    image: "esmero/php-8.3-fpm:1.6.0-multiarch"
     tty: true
     networks:
       - host-net
       - esmero-net
     volumes:
-      - ${ARCHIPELAGO_ROOT}/config_storage/php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ${ARCHIPELAGO_ROOT}/config_storage/php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf~
       - ${ARCHIPELAGO_ROOT}/drupal:/var/www/html:cached
     environment:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
@@ -196,7 +196,7 @@ services:
       # MINIO_CACHE_AFTER: 3
       # MINIO_CACHE_WATERMARK_LOW: 70
       # MINIO_CACHE_WATERMARK_HIGH: 90
-    command: gateway s3 https://s3.amazonaws.com/ --console-address ":9001"
+    command: gateway s3 https://s3.us-east-2.amazonaws.com/ --console-address ":9001"
   redis:
     container_name: esmero-redis
     image: redis:6.2-alpine

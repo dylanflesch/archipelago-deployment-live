@@ -10,7 +10,8 @@ documentation-->
 
 A Cloud / Local production ready Archipelago Deployment using Docker and soon Kubernetes.
 
-Last updated: September 2025.
+Last updated: February 2026
+Upgraded to Drupal 10.6.3 and Archipelago 1.6.0 (from 1.5) and update esmero-php to allow for audiowaveform, and upgrade strawberryfield to 1.7.0 to allow for local CSV-based linked open data endpoints.
 Includes merge strategy to prefer existing file for certain environment specific configs that we still want to track in git.
 
 ## What is this repo for?
