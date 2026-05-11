@@ -21,16 +21,6 @@ Includes merge strategy to prefer existing file for certain environment specific
 
 See original README.md here: https://github.com/esmero/archipelago-deployment-live/blob/1.6.0/README.md
 
-## Caring & Coding + Fixing + Testing
-
-* [Diego Pino](https://github.com/DiegoPino)
-* [Allison Lund](https://github.com/alliomeria)
-* [Giancarlo Birello](https://github.com/giancarlobi)
-
-## Acknowledgments
-
-This software is a [Metropolitan New York Library Council](https://metro.org) Open-Sourc>
-
 ## License
 
 [GPLv3](http://www.gnu.org/licenses/gpl-3.0.txt)
