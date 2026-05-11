@@ -16,8 +16,7 @@ May 2026:
 Updated this README.md, testing new change management pipeline.
 
 February 2026:
-Upgraded to Drupal 10.6.3 and Archipelago 1.6.0 (from 1.5) and update esmero-php to allo>
-Includes merge strategy to prefer existing file for certain environment specific configs>
+February 2026 Upgraded to Drupal 10.6.3 and Archipelago 1.6.0 (from 1.5) and update esmero-php to allow for audiowaveform, and upgrade strawberryfield to 1.7.0 to allow for local CSV-based linked open data endpoints. Includes merge strategy to prefer existing file for certain environment specific configs that we still want to track in git.
 
 ## Source README
 https://github.com/esmero/archipelago-deployment-live/blob/1.6.0/README.md
