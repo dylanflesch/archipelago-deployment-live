@@ -214,7 +214,6 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            digital_object: digital_object
             digital_object_collection: digital_object_collection
           group: 1
           exposed: false
@@ -285,7 +284,7 @@ display:
       footer: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -304,7 +303,7 @@ display:
         sbf_ajax_interactions: {  }
       block_hide_empty: true
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

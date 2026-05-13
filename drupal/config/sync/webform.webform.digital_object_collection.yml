@@ -60,15 +60,29 @@ elements: |-
         class:
           - custom-form-input-heading
     description:
-      '#type': textarea
+      '#type': text_format
       '#title': Description
-      '#description': 'Please provide a brief description for this digital object.'
       '#title_display': before
-      '#description_display': before
+      '#format': full_html
+      '#allowed_formats':
+        - full_html
       '#rows': 4
       '#autocomplete': 'off'
-      '#required': true
       '#required_error': 'Please provide a brief description for this digital object.'
+      '#states_clear': false
+      '#label_attributes':
+        class:
+          - custom-form-input-heading
+      '#format_items': comma
+    transcript:
+      '#type': text_format
+      '#title': Transcript
+      '#title_display': before
+      '#format': full_html
+      '#allowed_formats':
+        - full_html
+      '#rows': 4
+      '#autocomplete': 'off'
       '#states_clear': false
       '#label_attributes':
         class:
@@ -241,29 +255,32 @@ elements: |-
         class:
           - custom-form-input-heading
       '#format_items': comma
-    local_identifier:
-      '#type': textfield
-      '#title': 'Local identifier'
-      '#title_display': before
-      '#autocomplete': 'off'
-      '#states':
-        visible:
-          - ':input[name="type"]':
-              value: CreativeWorkSeries
-          - or
-          - ':input[name="type"]':
-              value: Newspaper
-          - or
-          - ':input[name="type"]':
-              value: Periodical
-          - or
-          - ':input[name="type"]':
-              value: Publication
+    identifiers:
+      '#type': webform_custom_composite
+      '#title': Identifiers
       '#states_clear': false
-      '#label_attributes':
-        class:
-          - custom-form-input-heading
-      '#format_items': comma
+      '#multiple__min_items': 1
+      '#multiple__empty_items': 0
+      '#multiple__sorting': false
+      '#multiple__add_more': false
+      '#element':
+        source:
+          '#type': webform_select_other
+          '#options':
+            'CAVAFY UUID': 'CAVAFY UUID'
+            'DAVID Theme': 'DAVID Theme'
+            'Publisher CMS Slug': 'Publisher CMS Slug'
+            'Publisher CMS Primary Key': 'Publisher CMS Primary Key'
+            'Simplecast Dashboard Link': 'Simplecast Dashboard Link'
+            'Simplecast Episode ID': 'Simplecast Episode ID'
+            'Simplecast Public Link': 'Simplecast Public Link'
+            'Source Storage Path': 'Source Storage Path'
+            'WNYC Archive Catalog Number': 'WNYC Archive Catalog Number'
+            'WNYC Media Archive Label': 'WNYC Media Archive Label'
+          '#title': Source
+        identifier:
+          '#type': textfield
+          '#title': Identifier
     date_embargo_lift:
       '#type': date
       '#title': 'Date of Embargo Lift'

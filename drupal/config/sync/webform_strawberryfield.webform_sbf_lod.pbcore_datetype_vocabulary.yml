@@ -1,0 +1,16 @@
+uuid: 64fb8f4a-9465-4829-aaa1-f30ef893578e
+langcode: en
+status: true
+dependencies: {  }
+id: pbcore_datetype_vocabulary
+label: 'PBCore DateType Vocabulary'
+pluginid: lod_from_csv
+pluginconfig:
+  autocomplete_items: e6396a84-0b47-40ff-906c-903c136afc48
+  autocomplete_label_header: Term
+  autocomplete_url_header: URI
+  autocomplete_desc_headers: Definition
+  autocomplete_limit: '10'
+  autocomplete_match: '2'
+  autocomplete_match_operator: STARTS_WITH
+active: true

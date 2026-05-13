@@ -1,0 +1,8 @@
+uuid: 7670da27-4b2f-4a3a-b1c0-c53e5aebe26d
+langcode: en
+status: true
+dependencies: {  }
+id: user-account-menu-nypr
+label: 'User account menu NYPR'
+description: 'Links related to the active user account'
+locked: false

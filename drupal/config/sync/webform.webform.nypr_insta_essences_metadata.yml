@@ -1,0 +1,820 @@
+uuid: 8749c457-b08c-42e0-b8e1-f3a4a52941bc
+langcode: en
+status: open
+dependencies:
+  module:
+    - webform_strawberryfield
+weight: 0
+open: null
+close: null
+uid: 8
+template: false
+archive: false
+id: nypr_insta_essences_metadata
+title: 'WIP: Instantiations and Essences Metadata'
+description: 'NYPR Specific Instantiations and Essences Metadata Webform'
+categories:
+  - Archipelago
+elements: |-
+  metadata:
+    '#type': webform_wizard_page
+    '#title': 'Basic Descriptive Metadata'
+    '#states_clear': false
+    '#access_create_roles':
+      - administrator
+      - metadata_pro
+    '#access_update_roles':
+      - authenticated
+    '#access_view_roles':
+      - authenticated
+    '#next_button_label': 'Move on to next step'
+    label:
+      '#type': textfield
+      '#title': Title
+      '#description': 'Please provide a brief title for this digital object.'
+      '#title_display': before
+      '#description_display': before
+      '#minlength': 3
+      '#maxlength': 256
+      '#placeholder': 'Title of this Object'
+      '#required': true
+      '#required_error': 'Please provide a brief title for this digital object.'
+      '#states_clear': false
+      '#label_attributes':
+        class:
+          - custom-form-input-heading
+      '#format_items': comma
+      '#access_create_roles':
+        - administrator
+        - metadata_pro
+      '#access_update_roles':
+        - administrator
+        - metadata_pro
+    label_alt:
+      '#type': textfield
+      '#title': 'Alternative Title'
+      '#description': 'Please provide a brief alternative title for this asset.'
+      '#title_display': before
+      '#description_display': before
+      '#minlength': 3
+      '#maxlength': 256
+      '#placeholder': 'Title of this Object'
+      '#required_error': 'Please provide a brief title for this asset.'
+      '#states_clear': false
+      '#label_attributes':
+        class:
+          - custom-form-input-heading
+      '#format_items': comma
+      '#access_create_roles':
+        - administrator
+        - metadata_pro
+      '#access_update_roles':
+        - administrator
+        - metadata_pro
+    type:
+      '#type': select
+      '#title': 'Media Type'
+      '#help': 'Please select from the&nbsp;<a href="/admin/structure/webform/config/options/manage">predefined options</a>&nbsp;found in the Schema.org Creative Works list.'
+      '#options': schema_org_creative_works
+      '#required': true
+      '#states_clear': false
+      '#label_attributes':
+        class:
+          - custom-form-input-heading
+    website_url:
+      '#type': url
+      '#title': 'URL of the original Website'
+      '#description': 'Please add a common base URL for this resource'
+      '#help_title': 'What is this field used for?'
+      '#help': 'When uploading a <em>WARC/WACZ file</em>, this is the <em>URL</em> that will be loaded initially on display. Please make sure it actually exists inside your Web Archive.'
+      '#states':
+        visible:
+          ':input[name="type"]':
+            value: WebPage
+      '#states_clear': false
+      '#format_items': comma
+    medium:
+      '#type': select
+      '#title': Medium
+      '#multiple': true
+      '#help': 'For Digital Object Collections, recommended selections from the&nbsp;<a href="/admin/structure/webform/config/options/manage">predefined options</a>&nbsp;found in the Schema.org Creative Works list are: Collection, Creative Work Series (Compound Object/Collection), Newspaper, or Periodical.'
+      '#options': medium
+      '#states':
+        visible:
+          - ':input[name="type"]':
+              value: Episode
+          - or
+          - ':input[name="type"]':
+              value: Segment
+      '#states_clear': false
+      '#label_attributes':
+        class:
+          - custom-form-input-heading
+    dates_edtf:
+      '#type': webform_custom_composite
+      '#title': 'Dates (EDTF)'
+      '#states_clear': false
+      '#multiple__min_items': 1
+      '#multiple__empty_items': 0
+      '#multiple__sorting': false
+      '#multiple__add_more': false
+      '#element':
+        date:
+          '#type': webform_edtf_date
+          '#title': 'Date (EDTF)'
+        date_type:
+          '#type': webform_select_other
+          '#options': pbcore_datetype_vocabulary
+          '#title': 'Date Type'
+    date_embargo_lift:
+      '#type': date
+      '#title': 'Date of Embargo Lift'
+      '#description': 'Date that contains an embargo lift date that will be used to Embargo Metadata and Media.'
+      '#title_display': before
+      '#description_display': before
+      '#states':
+        visible:
+          - ':input[name="type"]':
+              value: CreativeWorkSeries
+          - or
+          - ':input[name="type"]':
+              value: Newspaper
+          - or
+          - ':input[name="type"]':
+              value: Periodical
+          - or
+          - ':input[name="type"]':
+              value: Publication
+      '#states_clear': false
+      '#format_items': comma
+      '#access_create_roles':
+        - administrator
+      '#datepicker': true
+    description_fieldset:
+      '#type': fieldset
+      '#title': Description
+      '#states_clear': false
+      description_details:
+        '#type': details
+        '#title': Description
+        descriptions:
+          '#type': webform_custom_composite
+          '#title': Descriptions
+          '#multiple': 10
+          '#states_clear': false
+          '#multiple__min_items': 1
+          '#multiple__empty_items': 0
+          '#multiple__sorting': false
+          '#multiple__add_more': false
+          '#element':
+            description_type:
+              '#type': textfield
+              '#title': 'Description Type'
+            description:
+              '#type': textarea
+              '#title': 'Description Value'
+    contributor_publisher_fieldset:
+      '#type': fieldset
+      '#title': 'Contributors and Producing Organization'
+      '#help_title': 'Contributors and Publisher Help'
+      '#help': 'Individual(s)/Organization(s) responsible for creating the original resource.'
+      '#description_display': before
+      contributor_lod_details:
+        '#type': details
+        '#title': Contributors
+        '#description': 'You can select to search from the LCNAF&#39;s Personal, Corporate, or Family Names Classes (<a href="https://id.loc.gov/ontologies/madsrdf/v1.html">listed here</a>). Roles information is being sourced from <a href="https://id.loc.gov/vocabulary/relators.html">LoC Relators terms</a>.'
+        '#states_clear': false
+        contributor_lod:
+          '#type': webform_metadata_multiagent
+          '#title': Contributors
+          '#multiple': true
+          '#multiple__min_items': 1
+          '#multiple__empty_items': 0
+          '#multiple__sorting': false
+          '#multiple__add_more': false
+          '#format_items': ol
+          '#agent_type__placeholder': 'Select Contributor Type'
+          '#name_label__title': ' Name'
+          '#name_uri__title': 'Contributor URI'
+          '#role_uri__title': 'Role URI'
+          '#vocab_personal_name': rdftype
+          '#rdftype_personal_name': PersonalName
+          '#vocab_corporate_name': rdftype
+          '#rdftype_corporate_name': CorporateName
+          '#vocab_family_name': rdftype
+          '#rdftype_family_name': FamilyName
+          '#role_type': customlod
+          '#role_custom_lod': pbcore_creator_and_contributor_role_vocabulary
+      publisher_lod_details:
+        '#type': details
+        '#title': 'Producing Organization'
+        '#description': 'You can select to search from the LCNAF&#39;s Personal, Corporate, or Family Names Classes (<a href="https://id.loc.gov/ontologies/madsrdf/v1.html">listed here</a>). Roles information is being sourced from <a href="https://id.loc.gov/vocabulary/relators.html">LoC Relators terms</a>.'
+        publisher_lod:
+          '#type': webform_metadata_multiagent
+          '#title': 'Producing Organization'
+          '#multiple': true
+          '#multiple__min_items': 1
+          '#multiple__empty_items': 0
+          '#multiple__sorting': false
+          '#multiple__add_more': false
+          '#format_items': ol
+          '#agent_type__placeholder': 'Select Publisher Type'
+          '#name_label__title': ' Name'
+          '#name_uri__title': 'Publisher URI'
+          '#role_uri__title': 'Role URI'
+          '#vocab_personal_name': rdftype
+          '#rdftype_personal_name': PersonalName
+          '#vocab_corporate_name': rdftype
+          '#rdftype_corporate_name': CorporateName
+          '#vocab_family_name': rdftype
+          '#rdftype_family_name': FamilyName
+          '#role_type': customlod
+          '#role_custom_lod': pbcore_creator_and_contributor_role_vocabulary
+  relationships_and_administrative_info:
+    '#type': webform_wizard_page
+    '#title': 'Relationships and Administrative Information'
+    '#prev_button_label': 'Back to the previous step'
+    '#next_button_label': 'Move on to next step'
+    ismemberof:
+      '#type': entity_autocomplete
+      '#title': 'Part of Collection'
+      '#unique': true
+      '#states_clear': false
+      '#format_items': comma
+      '#target_type': node
+      '#selection_handler': 'default:node'
+      '#selection_settings':
+        target_bundles:
+          digital_object_collection: digital_object_collection
+    ismemberofseries:
+      '#type': entity_autocomplete
+      '#title': 'Part of Series'
+      '#unique': true
+      '#states_clear': false
+      '#format_items': comma
+      '#target_type': node
+      '#selection_handler': solr_views
+      '#selection_settings':
+        view:
+          view_name: ado_selection_by_type
+          display_name: entity_reference_solr_1
+          arguments:
+            - Series
+    ispartof:
+      '#type': entity_autocomplete
+      '#title': 'Part of a Creative Work Series'
+      '#description': 'Select a parent Creative Work Series ADO'
+      '#help': 'Use this element to attach this Object to a Creative Work Series ADO (Collection type). This works similar to the legacy &quot;Compounding&quot; idea.'
+      '#unique': true
+      '#states_clear': false
+      '#format_items': comma
+      '#target_type': node
+      '#selection_handler': 'default:node'
+      '#selection_settings':
+        target_bundles:
+          digital_object_collection: digital_object_collection
+        sort:
+          field: title
+          direction: ASC
+    sequence_id:
+      '#type': number
+      '#title': 'Sequence ID'
+      '#states':
+        visible:
+          ':input[name="ispartof"]':
+            filled: true
+      '#states_clear': false
+      '#format_items': comma
+      '#min': 1
+      '#max': 10000
+      '#step': 1
+    identifiers:
+      '#type': webform_custom_composite
+      '#title': Identifiers
+      '#states_clear': false
+      '#multiple__min_items': 1
+      '#multiple__empty_items': 0
+      '#multiple__sorting': false
+      '#multiple__add_more': false
+      '#element':
+        source:
+          '#type': webform_select_other
+          '#options':
+            'CAVAFY UUID': 'CAVAFY UUID'
+            'DAVID Theme': 'DAVID Theme'
+            'Publisher CMS Slug': 'Publisher CMS Slug'
+            'Publisher CMS Primary Key': 'Publisher CMS Primary Key'
+            'Simplecast Dashboard Link': 'Simplecast Dashboard Link'
+            'Simplecast Episode ID': 'Simplecast Episode ID'
+            'Simplecast Public Link': 'Simplecast Public Link'
+            'Source Storage Path': 'Source Storage Path'
+            'WNYC Archive Catalog Number': 'WNYC Archive Catalog Number'
+            'WNYC Media Archive Label': 'WNYC Media Archive Label'
+            'Archives Series Code': 'Archives Series Code'
+          '#title': Source
+        value:
+          '#type': textfield
+          '#title': Identifier
+    rights:
+      '#type': textarea
+      '#title': 'Local Rights Statement'
+      '#states_clear': false
+      '#format_items': comma
+    notes_details:
+      '#type': details
+      '#title': 'Notes and Other Information'
+      '#states_clear': false
+      note:
+        '#type': textarea
+        '#title': 'General Note'
+        '#states_clear': false
+        '#format_items': comma
+      provenance:
+        '#type': textarea
+        '#title': Provenance
+        '#states_clear': false
+        '#format_items': comma
+      annotations:
+        '#type': webform_custom_composite
+        '#title': Annotations
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#element':
+          type:
+            '#type': textfield
+            '#title': Type
+          value:
+            '#type': textfield
+            '#title': Value
+  essences_information:
+    '#type': webform_wizard_page
+    '#title': 'Essences Information'
+  agent:
+    '#type': webform_wizard_page
+    '#title': 'Subjects and Other Classifications'
+    '#open': true
+    '#prev_button_label': 'Back to previous step'
+    '#next_button_label': 'Next: Attach Files'
+    subjects_markup:
+      '#type': webform_markup
+      '#markup': '<p>Subjects and other classification terms identify&nbsp;the names, places, subjects and formats associated with the object(s) being described.&nbsp;Please assign at least one term&nbsp;from a controlled source, such as the Library of Congress or Wikidata linked data vocabularies.</p>'
+    pb_core_genre:
+      '#type': details
+      '#title': 'PB Core Genre'
+      '#states_clear': false
+      genres:
+        '#type': webform_custom_composite
+        '#title': Genres
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#element':
+          label:
+            '#type': textfield
+            '#title': Label
+          source:
+            '#type': textfield
+            '#title': Source
+            '#placeholder': 'PBCore Genre Picklist'
+    subjects_details:
+      '#type': details
+      '#title': 'Library of Congress Linked Data'
+      '#states':
+        expanded:
+          '':
+            '': ''
+      '#states_clear': false
+      subject_loc:
+        '#type': webform_metadata_loc
+        '#title': 'Library of Congress Subject Headings'
+        '#multiple': 10
+        '#multiple__header': true
+        '#multiple__no_items_message': ''
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#multiple__add_more_input': false
+        '#label__title': 'Subject Label'
+        '#rdftype': ''
+      subject_lcnaf_names:
+        '#type': webform_metadata_loc
+        '#title': 'LCNAF Names'
+        '#multiple': 10
+        '#multiple__header': true
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#multiple__add_more_input': false
+        '#multiple__add_more_input_label': 'more LCNAF names'
+        '#label__title': 'LCNAF Name Label'
+        '#uri__title': 'LCNAF Name URL'
+        '#vocab': names
+        '#rdftype': ''
+    other_subjects_detail:
+      '#type': details
+      '#title': 'Other Subjects'
+      subject_other:
+        '#type': webform_custom_composite
+        '#title': 'Other Subjects'
+        '#multiple': 10
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#element':
+          label:
+            '#type': textfield
+            '#title': Label
+          uri:
+            '#type': textfield
+            '#title': URI
+    geographic_location_details:
+      '#type': details
+      '#title': 'Open Street Maps Location'
+      geographic_location:
+        '#type': webform_metadata_nominatim
+        '#title': 'Open Streets Maps Location'
+        '#description': 'Example: <em>Central Park, Manhattan, New York County, New York, United States of America</em>'
+        '#help_title': Help
+        '#help': |
+          This is meant to describe a geographic location closely related to this Digital Object. Such as the origin of the object, where it was created, etc.<br />
+          <br />
+          Example: <em>Central Park, Manhattan, New York County, New York, United States of America</em>
+        '#states_clear': false
+        '#format_items': ol
+        '#lat__access': true
+        '#lng__access': true
+        '#display_name__title': 'Display Name'
+        '#display_name__access': true
+        '#city__access': true
+        '#country__access': true
+  media:
+    '#type': webform_wizard_page
+    '#title': 'Upload Files'
+    '#open': true
+    '#prev_button_label': 'Back to previous step'
+    images:
+      '#type': webform_image_file
+      '#title': 'Upload Image Files'
+      '#multiple': 10
+      '#states_clear': false
+      '#format': custom
+      '#format_html': '<img src="{{  item.link }}">'
+      '#format_items': ol
+      '#access_create_roles':
+        - authenticated
+      '#access_update_roles':
+        - authenticated
+      '#access_view_roles':
+        - authenticated
+      '#file_preview': ':image'
+      '#max_filesize': '512'
+      '#file_extensions': 'jp2 jpg jpeg png tif tiff'
+    documents:
+      '#type': webform_document_file
+      '#title': 'Upload Document Files'
+      '#multiple': 1000
+      '#states':
+        visible:
+          - ':input[name="type"]':
+              value: Painting
+          - xor
+          - ':input[name="type"]':
+              value: ShortStory
+          - xor
+          - ':input[name="type"]':
+              value: Dataset
+          - xor
+          - ':input[name="type"]':
+              value: Podcast
+          - xor
+          - ':input[name="type"]':
+              value: Conversation
+          - xor
+          - ':input[name="type"]':
+              value: NewspaperIssue
+          - xor
+          - ':input[name="type"]':
+              value: PublicationIssue
+          - xor
+          - ':input[name="type"]':
+              value: Article
+          - xor
+          - ':input[name="type"]':
+              value: DigitalDocument
+          - xor
+          - ':input[name="type"]':
+              value: Thesis
+          - xor
+          - ':input[name="type"]':
+              value: Book
+          - xor
+          - ':input[name="type"]':
+              value: Manuscript
+      '#states_clear': false
+      '#file_placeholder': 'Archipelago is currently only configured to display pdfs via a Viewer, but can still enable download other file types.'
+      '#file_extensions': 'txt rtf pdf doc docx odt ppt pptx odp xls xlsx ods csv jsonld'
+      '#sanitize': true
+    audios:
+      '#type': managed_file
+      '#title': 'Upload Audio and Transcript Files'
+      '#multiple': 5
+      '#states':
+        visible:
+          - ':input[name="type"]':
+              value: AudioObject
+          - or
+          - ':input[name="type"]':
+              value: MusicRecording
+          - or
+          - ':input[name="type"]':
+              value: Podcast
+          - or
+          - ':input[name="type"]':
+              value: Conversation
+      '#states_clear': false
+      '#format_items': comma
+      '#file_preview': file
+      '#max_filesize': '512'
+      '#file_extensions': 'mp3 wav aif mp2 vtt'
+    videos:
+      '#type': managed_file
+      '#title': 'Upload Video and Transcript Files'
+      '#multiple': 5
+      '#states':
+        visible:
+          - ':input[name="type"]':
+              value: VideoObject
+          - or
+          - ':input[name="type"]':
+              value: Movie
+      '#states_clear': false
+      '#format_items': comma
+      '#max_filesize': '512'
+      '#file_extensions': 'mp4 m4v mov vtt'
+    models:
+      '#type': managed_file
+      '#title': 'Upload 3D Model Files'
+      '#multiple': 5
+      '#states':
+        visible:
+          - ':input[name="type"]':
+              value: 3DModel
+          - or
+          - ':input[name="type"]':
+              value: Sculpture
+      '#states_clear': false
+      '#format_items': comma
+      '#max_filesize': '512'
+      '#file_extensions': 'stl obj mtl'
+    upload_associated_warcs:
+      '#type': webform_document_file
+      '#title': 'Upload Web Archive Files'
+      '#states':
+        visible:
+          ':input[name="type"]':
+            value: WebPage
+      '#states_clear': false
+      '#format_items': comma
+      '#uri_scheme': s3
+      '#max_filesize': '512'
+      '#file_extensions': 'warc warc.gz wacz'
+      '#sanitize': true
+    large_files:
+      '#type': webform_tus_file
+      '#title': 'Upload Large Files via Multipart (TUS)'
+      '#multiple': 2
+      '#file_placeholder': 'Upload a file via TUS'
+      '#file_extensions': 'tiff tif mp4 mov zip warc warc.gz wacz'
+      '#max_filesize_tus': '4000'
+    represents_parent:
+      '#type': checkbox
+      '#title': 'This object represents/depicts its parent'
+      '#description': 'Mark this Checkbox to use this Object as a representative Object of its parent. E.g this can be used to use this Object&#39;s Image as thumbnail when listing/showing a collection.&nbsp;'
+      '#states':
+        invisible:
+          ':input[name="files[images][]"]':
+            empty: true
+          ':input[name="files[documents][]"]':
+            empty: true
+          ':input[name="files[videos][]"]':
+            empty: true
+          ':input[name="ismemberof"]':
+            empty: true
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': 'Save Metadata'
+    '#reset__label': 'Clear Form'
+    '#preview_prev_hide': true
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: ''
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: source_entity_webform
+  form_submit_once: true
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: true
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: true
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: true
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
+  preview: 1
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: inline
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: true
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  a_strawberryfield_harvester:
+    id: strawberryField_webform_handler
+    handler_id: a_strawberryfield_harvester
+    label: 'A strawberryField harvester'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      submission_url: 'https://api.example.org/SOME/ENDPOINT'
+      upload_scheme: s3
+      operation: null
+      ado_settings:
+        bundles: null
+        entity_revision: false
+      ado_crud_enabled: false
+      states:
+        - completed
+      ado_prepopulate_enabled: false
+variants: {  }

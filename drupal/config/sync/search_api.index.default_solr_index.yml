@@ -75,6 +75,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_descriptive_metadata
+  agents_fulltext:
+    label: 'NYPR » name_label (a.k.a Agents) FULLTEXT'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:name_label'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   aggregated_field:
     label: 'Aggregated field'
     property_path: aggregated_field
@@ -82,6 +90,14 @@ field_settings:
     configuration:
       type: union
       fields: {  }
+  annotations:
+    label: 'NYPR » annotations'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:annotations'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   any_parent_nid:
     label: 'Related ADOs » Content » ID'
     datasource_id: 'entity:node'
@@ -140,6 +156,22 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_descriptive_metadata
+  bit_depth:
+    label: 'NYPR » bit_depth'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:bit_depth'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  cavafy_title_type_combined:
+    label: 'NYPR » cavafy_title_type_combined'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:cavafy_title_type_combined'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   changed:
     label: Changed
     datasource_id: 'entity:node'
@@ -169,6 +201,14 @@ field_settings:
     dependencies:
       module:
         - node
+  data_checksum:
+    label: 'NYPR » data_checksum'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:data_checksum'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   date_as_range:
     label: '🍓 Strawberry (Descriptive Metadata source) » date_as_range'
     datasource_id: 'entity:node'
@@ -190,6 +230,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_descriptive_metadata
+  description_value:
+    label: 'NYPR » description_value'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:description_value'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   digital_object_type:
     label: '🍓 Strawberry (Descriptive Metadata source) » digital_object_type'
     datasource_id: 'entity:node'
@@ -206,11 +254,27 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_tags
+  file_checksum:
+    label: 'NYPR » file_checksum'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:file_checksum'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   file_uuid:
     label: 'SBF Source File UUID (first one passed in a Post Processor chain)'
     datasource_id: strawberryfield_flavor_datasource
     property_path: file_uuid
     type: string
+  flv_mediainfo_duration:
+    label: 'NYPR » flv_mediainfo_duration'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:flv_mediainfo_duration'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   fulltext:
     label: 'SBF Unmodified data body no highlight'
     datasource_id: strawberryfield_flavor_datasource
@@ -221,6 +285,38 @@ field_settings:
     datasource_id: strawberryfield_flavor_datasource
     property_path: fulltext
     type: 'solr_text_custom:ocr_highlight'
+  generation:
+    label: 'NYPR » generation'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:generation'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  genres_label:
+    label: 'NYPR » genres_label'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:genres_label'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  genres_label_fulltext:
+    label: 'NYPR  » genres_label  (FULLTEXT)'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:genres_label'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  internal_flat_hierarchy:
+    label: 'NYPR » internal_flat_hierarchy'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:internal_flat_hierarchy'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   ismemberof:
     label: '🍓 Strawberry (Descriptive Metadata source) » ismemberof'
     datasource_id: 'entity:node'
@@ -242,6 +338,14 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: 'field_descriptive_metadata:label'
     type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  label_alt:
+    label: 'NYPR » label_alt'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:label_alt'
+    type: text
     dependencies:
       config:
         - field.storage.node.field_descriptive_metadata
@@ -269,6 +373,30 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_descriptive_metadata
+  local_identifiers:
+    label: 'NYPR » local_identifiers'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:local_identifiers'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  medium:
+    label: 'NYPR » medium'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:medium'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  minimum_viable_metadata_present:
+    label: 'NYPR » minimum_viable_metadata_present'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:minimum_viable_metadata_present'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   name_1:
     label: '🍓 Strawberry (Descriptive Metadata source) » name'
     datasource_id: 'entity:node'
@@ -289,6 +417,16 @@ field_settings:
     label: '🍓 Strawberry (Descriptive Metadata source) » entity_sbf_entity_reference_ismemberof » ID'
     datasource_id: 'entity:node'
     property_path: 'field_descriptive_metadata:sbf_entity_reference_ismemberof:nid'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+      module:
+        - node
+  nid_ref_ismemberofserie:
+    label: 'NYPR » entity_sbf_entity_reference_ismemberofseries » ID'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:sbf_entity_reference_ismemberofseries:nid'
     type: integer
     dependencies:
       config:
@@ -374,11 +512,59 @@ field_settings:
     datasource_id: strawberryfield_flavor_datasource
     property_path: 'target_id:field_descriptive_metadata:sequence_id'
     type: integer
+  physical_instantiation_format:
+    label: 'NYPR » physical_instantiation_format'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:physical_instantiation_format'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  physical_instantiation_format_fulltext:
+    label: 'NYPR » Fulltext physical_instantiation_format'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:physical_instantiation_format'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  physical_location:
+    label: 'NYPR » physical_location'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:physical_location'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  primary_language:
+    label: 'NYPR » primary_language'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:primary_language'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   processor_id:
     label: 'SBF Processor Plugin id that populated this data'
     datasource_id: strawberryfield_flavor_datasource
     property_path: processor_id
     type: string
+  publisher_label:
+    label: 'NYPR » publisher_label'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:publisher_label'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  publisher_label_fulltext:
+    label: 'NYPR  » publisher_label (FULLTEXT)'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:publisher_label'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   raw_json:
     label: '🍓 Strawberry (Descriptive Metadata source) RAW JSON'
     datasource_id: 'entity:node'
@@ -393,11 +579,8 @@ field_settings:
     type: text
     configuration:
       roles:
-        - anonymous
+        - nypr_staff
       view_mode:
-        'entity:file':
-          ':default': ''
-          file: ''
         'entity:node':
           ':default': ''
           article: ''
@@ -435,6 +618,22 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_descriptive_metadata
+  revision_log:
+    label: 'NYPR » Node Revision log message'
+    datasource_id: 'entity:node'
+    property_path: revision_log
+    type: text
+    dependencies:
+      module:
+        - node
+  rights:
+    label: 'NYPR » rights'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:rights'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   sbf_aggregated_items:
     label: 'Aggregated Strawberry Flavor Documents'
     property_path: sbf_aggregated_items
@@ -445,6 +644,16 @@ field_settings:
       join_fields:
         parent_id: parent_id
         top_parent_id: top_parent_id
+  sbf_entity_reference_ismemberofserie_title:
+    label: 'NYPR » entity_sbf_entity_reference_ismemberofseries » Title'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:sbf_entity_reference_ismemberofseries:title'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+      module:
+        - node
   sbf_entity_reference_partof_memberof_title:
     label: '🍓 Strawberry (Descriptive Metadata source) » ispartof » ismemberof » Title'
     datasource_id: 'entity:node'
@@ -586,6 +795,14 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: 'field_descriptive_metadata:subject_labels'
     type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  subject_labels_fulltext:
+    label: 'NYPR  » subject_labels (FULLTEXT)'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:subject_labels'
+    type: text
     dependencies:
       config:
         - field.storage.node.field_descriptive_metadata
@@ -797,11 +1014,11 @@ processor_settings:
     title: true
     alt: true
     tags:
-      b: 2
-      h1: 5
-      h2: 3
-      h3: 2
-      string: 2
+      b: 2.0
+      h1: 5.0
+      h2: 3.0
+      h3: 2.0
+      string: 2.0
   language_with_fallback: {  }
   rendered_item:
     weights:
@@ -843,7 +1060,7 @@ processor_settings:
       preprocess_index: 0
 tracker_settings:
   default:
-    indexing_order: fifo
+    indexing_order: lifo
 options:
   cron_limit: 50
   delete_on_fail: true

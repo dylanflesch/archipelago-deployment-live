@@ -46,10 +46,14 @@ third_party_settings:
         formatter: strawberry_metadata_formatter
         settings:
           formatter:
+            iiif_base_url: 'https://archipelago-dev.nyprarchives.org/cantaloupe/iiif/2'
+            iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
+            use_iiif_globals: '1'
             label: 'Descriptive Metadata'
             specs: 'http://schema.org'
-            metadatadisplayentity_uuid: bde1cb38-e1b8-4f2d-bc1c-bff646d2e8b7
+            metadatadisplayentity_uuid: 5829f12d-e959-4093-bd77-1e0413d7795b
             metadatadisplayentity_uselabel: '0'
+            hide_on_embargo: '0'
   field_layout:
     id: layout_onecol
     settings:
@@ -89,7 +93,7 @@ content:
       manifesturl_json_key_source: iiifmanifest
     third_party_settings: {  }
     weight: 0
-    region: content
+    region: ds_content
 hidden:
   body: true
   content_moderation_control: true

@@ -1,0 +1,8 @@
+log_unknown: true
+only_first_login: false
+unassign_roles: {  }
+default_roles:
+  nypr_staff: nypr_staff
+saml_attribute: 'http://schemas.microsoft.com/ws/2008/06/identity/claims/groups'
+saml_attribute_separator: ''
+value_map: {  }

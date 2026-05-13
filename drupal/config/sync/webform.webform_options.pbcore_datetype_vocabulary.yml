@@ -1,0 +1,43 @@
+uuid: f856aa6d-4438-441e-b148-e5ab63e6849f
+langcode: en
+status: true
+dependencies: {  }
+id: pbcore_datetype_vocabulary
+label: 'PBCore DateType Vocabulary'
+category: ''
+likert: false
+options: |-
+  accepted: accepted
+  available: available
+  'available end': 'available end'
+  'available start': 'available start'
+  broadcast: broadcast
+  captured: captured
+  created: created
+  copyright: copyright
+  deletion: deletion
+  digitized: digitized
+  distributed: distributed
+  dubbed: dubbed
+  edited: edited
+  encoded: encoded
+  encrypted: encrypted
+  event: event
+  ingested: ingested
+  issued: issued
+  licensed: licensed
+  mastered: mastered
+  migrated: migrated
+  mixed: mixed
+  modified: modified
+  normalized: normalized
+  performed: performed
+  podcast: podcast
+  published: published
+  released: released
+  restored: restored
+  revised: revised
+  transferred: transferred
+  valid: valid
+  validated: validated
+  webcast: webcast
