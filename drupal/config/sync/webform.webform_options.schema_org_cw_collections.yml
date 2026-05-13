@@ -12,3 +12,16 @@ options: |-
   Newspaper: Newspaper
   Periodical: Periodical
   Publication: Publication
+  Show: Show
+  Event: Event
+  RecurringFeature: 'Recurring Feature'
+  Initiative: Initiative
+  Curation: Curation
+  Episode: Episode
+  Segment: Segment
+  Exhibit: Exhibit
+  Box: Box
+  Series: Series
+  Painting: Painting
+  Photograph: Photograph
+  VisualArtwork: 'Visual Artwork'

@@ -7,16 +7,13 @@ dependencies:
     - views.view.solr_search_content
   module:
     - views
-    - search_api_autocomplete
 id: solr_search_content
 label: 'Solr search content'
 index_id: default_solr_index
 suggester_settings:
   live_results:
     fields:
-      - label
-      - label_1
-      - name_1
+      - rendered_item
       - title
     highlight:
       enabled: false
@@ -26,13 +23,15 @@ suggester_settings:
       'entity:node':
         article: ''
         digital_object: ''
+        digital_object_collection: ''
         page: ''
         webform: ''
+      strawberryfield_flavor_datasource:
+        digital_object: ''
+        digital_object_collection: ''
   server:
     fields:
-      - label
-      - label_1
-      - name_1
+      - rendered_item
       - title
 suggester_weights:
   live_results: 0

@@ -1,104 +1,119 @@
 type_to_viewmode:
   -
+    jsontype: Episode
+    view_mode: digital_object_collection_for_episodes
+    active: true
+    weight: -10
+  -
+    jsontype: Segment
+    view_mode: digital_object_collection_for_episodes
+    active: true
+    weight: -9
+  -
+    jsontype: Show
+    view_mode: digital_object_collection_for_shows
+    active: true
+    weight: -8
+  -
     jsontype: 3DModel
     view_mode: digital_object_with_3d_viewer
     active: true
-    weight: -10
+    weight: -7
   -
     jsontype: Article
     view_mode: digital_object_with_pdf
     active: true
-    weight: -9
+    weight: -6
   -
     jsontype: AudioObject
     view_mode: digital_object_with_a_v_player
     active: true
-    weight: -8
+    weight: -5
   -
     jsontype: ML
     view_mode: digital_object_with_mirador_viewer
     active: true
-    weight: -7
+    weight: -4
   -
     jsontype: Book
     view_mode: digital_object_with_book_reader
     active: true
-    weight: -6
+    weight: -3
   -
     jsontype: Dataset
     view_mode: Default
     active: true
-    weight: -5
+    weight: -2
   -
     jsontype: DigitalDocument
     view_mode: digital_object_with_pdf
     active: true
-    weight: -4
+    weight: -1
   -
     jsontype: NewspaperIssue
     view_mode: digital_object_with_book_reader
     active: true
-    weight: -3
+    weight: 0
   -
     jsontype: Map
     view_mode: digital_object_with_mirador_viewer
     active: true
-    weight: -2
+    weight: 1
   -
     jsontype: Movie
     view_mode: digital_object_with_video_player
     active: true
-    weight: -1
+    weight: 2
   -
     jsontype: MusicRecording
     view_mode: digital_object_with_a_v_player
     active: true
-    weight: 0
+    weight: 3
   -
     jsontype: Painting
     view_mode: digital_object_with_mirador_viewer
     active: true
-    weight: 1
+    weight: 4
   -
     jsontype: Panorama
     view_mode: digital_object_with_pannellum_panorama
     active: true
-    weight: 2
+    weight: 5
   -
     jsontype: Photograph
     view_mode: digital_object_viewmode_fullitem
     active: true
-    weight: 3
+    weight: 6
   -
     jsontype: Podcast
     view_mode: digital_object_oral_history_with_multiple_media
     active: true
-    weight: 4
+    weight: 7
   -
     jsontype: PublicationIssue
     view_mode: digital_object_with_book_reader
     active: true
-    weight: 5
+    weight: 8
   -
     jsontype: Sculpture
     view_mode: digital_object_with_3d_viewer
     active: true
-    weight: 6
+    weight: 9
   -
     jsontype: Thesis
     view_mode: digital_object_with_book_reader
     active: true
-    weight: 7
+    weight: 10
   -
     jsontype: VideoObject
     view_mode: digital_object_with_video_player
     active: true
-    weight: 8
+    weight: 10
   -
     jsontype: Collection
     view_mode: collection_listing
     active: true
-    weight: 9
+    weight: 10
   -
     jsontype: WebPage
     view_mode: digital_object_with_replay_web_webarchive_with_navbars_
@@ -154,3 +169,13 @@ type_to_viewmode:
     view_mode: digital_object_with_mirador_viewer
     active: true
     weight: 30
+  -
+    jsontype: PhysicalInstantiation
+    view_mode: digital_object_for_instantiations_nypr
+    active: true
+    weight: 35
+  -
+    jsontype: DigitalInstantiation
+    view_mode: digital_object_for_instantiations_nypr
+    active: true
+    weight: 36

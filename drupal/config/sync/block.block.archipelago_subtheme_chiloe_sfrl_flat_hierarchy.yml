@@ -1,0 +1,38 @@
+uuid: 54739a87-8662-43d7-80dd-48880042ca5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sfr_internal_flat_hierarchy
+  module:
+    - context
+    - facets
+    - user
+  theme:
+    - archipelago_subtheme_chiloe
+id: archipelago_subtheme_chiloe_sfrl_flat_hierarchy
+theme: archipelago_subtheme_chiloe
+region: sidebar_first
+weight: 1
+provider: null
+plugin: 'facet_block:sfr_internal_flat_hierarchy'
+settings:
+  id: 'facet_block:sfr_internal_flat_hierarchy'
+  label: 'Flat Hierarchy (Find and Replace)'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: archipelago_subtheme_chiloe_sfrl_flat_hierarchy
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content_with_find_and_replace-page_1: view-solr_search_content_with_find_and_replace-page_1
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

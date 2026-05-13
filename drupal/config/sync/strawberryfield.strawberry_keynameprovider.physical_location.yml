@@ -1,0 +1,13 @@
+uuid: 443d1f89-ecff-4d1d-a3f3-70699ded9860
+langcode: en
+status: true
+dependencies: {  }
+id: physical_location
+label: 'NYPR physical_location'
+pluginid: jmespath
+pluginconfig:
+  source_key: physical_location
+  is_date: false
+  is_date_range: false
+  exposed_key: physical_location
+active: true

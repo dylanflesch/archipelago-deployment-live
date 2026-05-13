@@ -1,0 +1,33 @@
+uuid: 003c2f34-6bf3-4728-8ae0-b3304dffa77f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.login-options-nypr
+  module:
+    - system
+    - user
+  theme:
+    - archipelago_subtheme_chiloe
+id: archipelago_subtheme_chiloe_loginoptionsnypr
+theme: archipelago_subtheme_chiloe
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:login-options-nypr'
+settings:
+  id: 'system_menu_block:login-options-nypr'
+  label: 'Login Options NYPR'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

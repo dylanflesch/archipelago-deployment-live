@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.map_display_for_digital_objects_sql
   module:
+    - format_strawberryfield
     - node
     - system
     - views
@@ -13,7 +14,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_views_block_map_display
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -22
+weight: -31
 provider: null
 plugin: 'views_block:map_display_for_digital_objects_sql-block_1'
 settings:
@@ -38,3 +39,12 @@ visibility:
     id: request_path
     negate: true
     pages: "/node/*/edit\r\n/add/*\r\n/search"
+  ado_type_condition:
+    id: ado_type_condition
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    ado_types:
+      - Collection
+      - Show
+    recurse_ado_types: false

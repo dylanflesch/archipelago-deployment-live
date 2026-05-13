@@ -12,7 +12,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_subject_labels_grid
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -10
+weight: -18
 provider: null
 plugin: 'facet_block:grid_subject_labels'
 settings:

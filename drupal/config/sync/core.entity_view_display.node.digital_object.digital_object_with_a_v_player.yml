@@ -26,28 +26,45 @@ third_party_settings:
       entity_classes: all_classes
       settings:
         label: ''
+        classes:
+          layout_class: {  }
         wrappers:
           ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
     regions:
       ds_content:
         - links
         - body
-        - 'display_field_copy:node-field_descriptive_metadata_image'
         - 'display_field_copy:node-static_media'
+        - 'display_field_copy:node-field_descriptive_metadata_image'
         - 'display_field_copy:node-formatted_metadata'
         - field_descriptive_metadata
     fields:
       'display_field_copy:node-field_descriptive_metadata_image':
         plugin_id: 'display_field_copy:node-field_descriptive_metadata_image'
-        weight: 2
+        weight: 3
         label: hidden
         formatter: strawberry_audio_formatter
         settings:
           formatter:
+            iiif_base_url: 'https://archipelago-dev.nyprarchives.org/cantaloupe/iiif/2'
+            iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
             json_key_source: 'as:audio'
             max_width: '0'
             max_height: '50'
+            use_iiif_globals: '0'
             number_media: 1
+            jmespath:
+              use_jmespath: false
+              fallback_jmespath: false
+              jmespath_filter: '"as:image".*|[?"dr:for"==''images'' && "dr:mimetype"== ''image/jpeg'' ]|[?"flv:exif".ImageWidth!=''null'']|[?"sequence">=`2`]'
+              jmespath_alternative_filter: '"as:image".*|[?"dr:for"==''images'' && "dr:mimetype"== ''image/jpeg'' ]|[?"flv:exif".ImageWidth!=''null'']|[?"sequence">=`2`]'
+            upload_json_key_source: ''
+            embargo_json_key_source: ''
+            hide_on_embargo: '0'
       'display_field_copy:node-formatted_metadata':
         plugin_id: 'display_field_copy:node-formatted_metadata'
         weight: 4
@@ -55,13 +72,17 @@ third_party_settings:
         formatter: strawberry_metadata_formatter
         settings:
           formatter:
+            iiif_base_url: 'https://archipelago-dev.nyprarchives.org/cantaloupe/iiif/2'
+            iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
+            use_iiif_globals: '1'
             label: 'Descriptive Metadata'
             specs: 'http://schema.org'
-            metadatadisplayentity_uuid: bde1cb38-e1b8-4f2d-bc1c-bff646d2e8b7
+            metadatadisplayentity_uuid: 82576dcf-f9a6-4d1d-847c-3cc83f222761
             metadatadisplayentity_uselabel: '0'
+            hide_on_embargo: '0'
       'display_field_copy:node-static_media':
         plugin_id: 'display_field_copy:node-static_media'
-        weight: 3
+        weight: 2
         label: hidden
         formatter: strawberry_media_formatter
         settings:

@@ -17,7 +17,7 @@ url_alias: is_member_of_content_title
 facet_source_id: 'search_api:views_page__advanced_search__page_1'
 field_identifier: sbf_entity_reference_title
 query_operator: and
-hard_limit: 0
+hard_limit: 50
 exclude: false
 use_hierarchy: false
 keep_hierarchy_parents_active: false
