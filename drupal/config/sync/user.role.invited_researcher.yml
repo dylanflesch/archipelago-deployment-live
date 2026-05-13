@@ -1,0 +1,12 @@
+uuid: db41bf2f-c96c-47d2-9c99-7955dc1f318c
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_moderation
+id: invited_researcher
+label: 'Invited Researcher'
+weight: 6
+is_admin: null
+permissions:
+  - 'view any unpublished content'

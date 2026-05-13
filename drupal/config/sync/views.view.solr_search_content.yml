@@ -344,6 +344,8 @@ display:
           bef:
             general:
               autosubmit: true
+              auto_submit_sort_only: false
+              autosubmit_breakpoint: ''
               autosubmit_exclude_textfield: true
               autosubmit_textfield_delay: 500
               autosubmit_textfield_minimum_length: 3
@@ -358,6 +360,7 @@ display:
               advanced:
                 combine: true
                 combine_rewrite: ''
+                combine_param: sort_bef_combine
                 reset: false
                 reset_label: ''
                 collapsible: false
@@ -373,8 +376,11 @@ display:
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
+                  open_by_default: false
                   is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                  sort_options_unsupported: ''
       access:
         type: none
         options: {  }
@@ -803,6 +809,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      enabled: false
       cache:
         type: search_api_tag
         options: {  }
@@ -906,6 +913,19 @@ display:
         type: search_api_none
         options: {  }
       sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_default_solr_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Relevance
+            field_identifier: search_api_relevance
+          exposed: true
         changed:
           id: changed
           table: search_api_index_default_solr_index
@@ -950,10 +970,12 @@ display:
               administrator: '0'
               metadata_api: '0'
               metadata_pro: '0'
+              nypr_staff: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: ''
             value_maxlength: 128
+            value_max_words: null
           is_grouped: false
           group_info:
             label: ''
@@ -968,7 +990,12 @@ display:
             group_items: {  }
           parse_mode: terms
           min_length: 1
-          fields: {  }
+          fields:
+            - label_1
+            - rendered_item
+            - title
+            - title_autocomplete
+            - title_unstemmed
         type:
           id: type
           table: search_api_index_default_solr_index
@@ -1011,94 +1038,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-        sbf_entity_reference_partof_memberof_title:
-          id: sbf_entity_reference_partof_memberof_title
-          table: search_api_index_default_solr_index
-          field: sbf_entity_reference_partof_memberof_title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_string
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        sbf_entity_reference_partof_memberof_title_1:
-          id: sbf_entity_reference_partof_memberof_title_1
-          table: search_api_index_default_solr_index
-          field: sbf_entity_reference_partof_memberof_title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_string
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
         sbf_flavors_join:
           id: sbf_flavors_join
           table: search_api_index_default_solr_index
@@ -1145,17 +1084,162 @@ display:
             sbf_plaintext: sbf_plaintext
           negation_default: omit
           sbf_type: 'ocr,text'
+        digital_object_type:
+          id: digital_object_type
+          table: search_api_index_default_solr_index
+          field: digital_object_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_string
+          operator: '!='
+          value:
+            min: ''
+            max: ''
+            value: PhysicalInstantiation
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        digital_object_type_1:
+          id: digital_object_type_1
+          table: search_api_index_default_solr_index
+          field: digital_object_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_string
+          operator: '!='
+          value:
+            min: ''
+            max: ''
+            value: DigitalInstantiation
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        minimum_viable_metadata_present:
+          id: minimum_viable_metadata_present
+          table: search_api_index_default_solr_index
+          field: minimum_viable_metadata_present
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_string
+          operator: '!='
+          value:
+            min: ''
+            max: ''
+            value: 'No'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
+          2: AND
       defaults:
         cache: false
         use_ajax: false
         sorts: false
         filters: false
         filter_groups: false
+        header: false
       use_ajax: true
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: '<div> Displaying results @start - @end of @total </div>'
       exposed_block: true
       display_extenders:
         sbf_ajax_interactions:

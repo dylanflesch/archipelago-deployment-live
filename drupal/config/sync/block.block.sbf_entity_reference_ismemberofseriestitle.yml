@@ -1,0 +1,30 @@
+uuid: 5d13c623-70c6-426a-a4e3-176a8c3b4335
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sbf_entity_reference_ismemberofseries_title
+  module:
+    - context
+    - facets
+  theme:
+    - archipelago_subtheme_chiloe
+id: sbf_entity_reference_ismemberofseriestitle
+theme: archipelago_subtheme_chiloe
+region: sidebar_first
+weight: -22
+provider: null
+plugin: 'facet_block:sbf_entity_reference_ismemberofseries_title'
+settings:
+  id: 'facet_block:sbf_entity_reference_ismemberofseries_title'
+  label: 'Part of Series'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: sbf_entity_reference_ismemberofseriestitle
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content-page_1: view-solr_search_content-page_1

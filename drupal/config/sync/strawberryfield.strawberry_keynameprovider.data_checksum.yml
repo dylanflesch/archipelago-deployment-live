@@ -1,0 +1,13 @@
+uuid: f7fee9b7-c9ae-4bd0-b147-41e0a6ef7c2f
+langcode: en
+status: true
+dependencies: {  }
+id: data_checksum
+label: 'NYPR AUDIO data_checksum (From media info this is a track checksum)'
+pluginid: jmespath
+pluginconfig:
+  source_key: '"as:audio".*."flv:mediainfo".audios[].md5'
+  is_date: false
+  is_date_range: false
+  exposed_key: data_checksum
+active: true

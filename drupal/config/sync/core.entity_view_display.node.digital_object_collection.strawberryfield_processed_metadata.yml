@@ -24,11 +24,11 @@ third_party_settings:
     regions:
       top:
         - node_title
+        - links
       first:
         - field_descriptive_metadata
-        - links
+        - search_api_excerpt
       second:
-        - node_changed_date
         - 'display_field_copy:node-raw_metadata'
     fields:
       'display_field_copy:node-raw_metadata':
@@ -42,11 +42,6 @@ third_party_settings:
             specs: 'http://schema.org'
             metadatadisplayentity_uuid: 0ccc85b4-ed72-4c58-b585-ba652ebcfcaf
             metadatadisplayentity_uselabel: '0'
-      node_changed_date:
-        plugin_id: node_changed_date
-        weight: 3
-        label: hidden
-        formatter: ds_post_date_long
       node_title:
         plugin_id: node_title
         weight: 0
@@ -54,8 +49,10 @@ third_party_settings:
         formatter: default
         settings:
           link: true
+          'link class': ''
+          link_target: ''
           wrapper: h2
-          class: 'fas fa-archive'
+          class: ''
   field_layout:
     id: layout_onecol
     settings:
@@ -78,16 +75,21 @@ content:
       metadatadisplayentity_uselabel: '0'
       upload_json_key_source: ''
       embargo_json_key_source: ''
+      hide_on_embargo: ''
     third_party_settings: {  }
-    weight: 1
-    region: content
+    weight: 2
+    region: first
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 2
-    region: content
+    weight: 1
+    region: top
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: first
 hidden:
   body: true
   content_moderation_control: true
   langcode: true
-  search_api_excerpt: true

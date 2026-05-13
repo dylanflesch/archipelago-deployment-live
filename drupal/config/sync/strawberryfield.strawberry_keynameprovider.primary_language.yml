@@ -1,0 +1,13 @@
+uuid: 10d798e4-c63a-4c53-9ca5-f7748d80b668
+langcode: en
+status: true
+dependencies: {  }
+id: primary_language
+label: 'NYPR primary_language'
+pluginid: jmespath
+pluginconfig:
+  source_key: 'language, essence_tracks[*].primary_language|[]'
+  is_date: false
+  is_date_range: false
+  exposed_key: primary_language
+active: true

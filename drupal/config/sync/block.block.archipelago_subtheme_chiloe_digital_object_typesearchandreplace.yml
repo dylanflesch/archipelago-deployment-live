@@ -12,12 +12,12 @@ dependencies:
 id: archipelago_subtheme_chiloe_digital_object_typesearchandreplace
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -3
+weight: -8
 provider: null
 plugin: 'facet_block:strawberry_descriptive_metadata_ado_replace'
 settings:
   id: 'facet_block:strawberry_descriptive_metadata_ado_replace'
-  label: 'Object Type'
+  label: Type
   label_display: visible
   provider: facets
   context_mapping: {  }

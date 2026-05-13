@@ -37,8 +37,14 @@ third_party_settings:
       ds_content:
         - node_title
         - field_descriptive_metadata
+        - 'display_field_copy:node-field_descriptive_metadata_image'
         - search_api_excerpt
     fields:
+      'display_field_copy:node-field_descriptive_metadata_image':
+        plugin_id: 'display_field_copy:node-field_descriptive_metadata_image'
+        weight: 2
+        label: hidden
+        formatter: strawberry_audio_formatter
       node_title:
         plugin_id: node_title
         weight: 0
@@ -73,7 +79,7 @@ content:
   search_api_excerpt:
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: ds_content
 hidden:
   body: true

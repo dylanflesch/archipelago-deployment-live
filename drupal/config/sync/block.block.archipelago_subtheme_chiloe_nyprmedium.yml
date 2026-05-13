@@ -1,27 +1,27 @@
-uuid: 479f0868-5980-438e-a650-8be41f24d395
+uuid: baf19c10-bef0-4eed-970f-4a7162123d28
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.mime_type
+    - facets.facet.nypr_medium
   module:
     - context
     - facets
   theme:
     - archipelago_subtheme_chiloe
-id: archipelago_subtheme_chiloe_mimetype
+id: archipelago_subtheme_chiloe_nyprmedium
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -17
+weight: -16
 provider: null
-plugin: 'facet_block:mime_type'
+plugin: 'facet_block:nypr_medium'
 settings:
-  id: 'facet_block:mime_type'
-  label: 'MIME Type'
+  id: 'facet_block:nypr_medium'
+  label: Medium
   label_display: visible
   provider: facets
   context_mapping: {  }
-  block_id: archipelago_subtheme_chiloe_mimetype
+  block_id: archipelago_subtheme_chiloe_nyprmedium
 visibility:
   view_inclusion:
     id: view_inclusion

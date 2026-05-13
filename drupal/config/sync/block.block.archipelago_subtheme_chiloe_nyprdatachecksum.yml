@@ -1,0 +1,30 @@
+uuid: fa10a278-d555-452f-a7ef-df76c2daba17
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.nypr_data_checksum
+  module:
+    - context
+    - facets
+  theme:
+    - archipelago_subtheme_chiloe
+id: archipelago_subtheme_chiloe_nyprdatachecksum
+theme: archipelago_subtheme_chiloe
+region: sidebar_first
+weight: -1
+provider: null
+plugin: 'facet_block:nypr_data_checksum'
+settings:
+  id: 'facet_block:nypr_data_checksum'
+  label: 'Data Checksum'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: archipelago_subtheme_chiloe_nyprdatachecksum
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content_with_find_and_replace-page_1: view-solr_search_content_with_find_and_replace-page_1

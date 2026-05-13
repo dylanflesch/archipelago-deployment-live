@@ -1,0 +1,13 @@
+uuid: c0a15900-df27-4093-96b5-f3d8269feaed
+langcode: en
+status: true
+dependencies: {  }
+id: bit_depth
+label: 'NYPR bit_depth (From Essence Track)'
+pluginid: jmespath
+pluginconfig:
+  source_key: 'essence_tracks[].bit_depth[].value'
+  is_date: false
+  is_date_range: false
+  exposed_key: bit_depth
+active: true

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_descriptive_metadata
-    - node.type.digital_object
     - node.type.digital_object_collection
   module:
     - format_strawberryfield
@@ -181,7 +180,6 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            digital_object: digital_object
             digital_object_collection: digital_object_collection
           group: 1
           exposed: false

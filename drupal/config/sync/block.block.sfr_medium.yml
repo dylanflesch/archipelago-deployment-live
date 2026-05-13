@@ -1,0 +1,38 @@
+uuid: b9604226-6749-4870-a430-f1957f887c9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sfr_medium
+  module:
+    - context
+    - facets
+    - user
+  theme:
+    - archipelago_subtheme_chiloe
+id: sfr_medium
+theme: archipelago_subtheme_chiloe
+region: sidebar_first
+weight: 4
+provider: null
+plugin: 'facet_block:sfr_medium'
+settings:
+  id: 'facet_block:sfr_medium'
+  label: 'Medium (Find and Replace)'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: sfr_medium
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content_with_find_and_replace-page_1: view-solr_search_content_with_find_and_replace-page_1
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

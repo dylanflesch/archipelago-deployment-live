@@ -12,7 +12,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_agentsformodernadvancedsearch
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -5
+weight: -10
 provider: null
 plugin: 'facet_block:agents_for_modern_advanced_search'
 settings:

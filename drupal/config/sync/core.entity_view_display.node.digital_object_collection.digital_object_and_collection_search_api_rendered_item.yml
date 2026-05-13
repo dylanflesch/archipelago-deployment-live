@@ -10,6 +10,7 @@ dependencies:
   module:
     - ds
     - field_layout
+    - format_strawberryfield
     - user
 third_party_settings:
   ds:
@@ -23,7 +24,24 @@ third_party_settings:
     regions:
       content:
         - 'display_field_copy:node-raw_metadata'
+        - field_descriptive_metadata
+        - 'display_field_copy:node-extra_metadata_collection'
     fields:
+      'display_field_copy:node-extra_metadata_collection':
+        plugin_id: 'display_field_copy:node-extra_metadata_collection'
+        weight: 2
+        label: hidden
+        formatter: strawberry_metadata_formatter
+        settings:
+          formatter:
+            iiif_base_url: 'https://archives.nypublicradio.org/cantaloupe/iiif/2'
+            iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
+            use_iiif_globals: '1'
+            label: 'Descriptive Metadata'
+            specs: 'http://schema.org'
+            metadatadisplayentity_uuid: aa9d946a-33d0-42aa-8962-cb51ed92406b
+            metadatadisplayentity_uselabel: '0'
+            hide_on_embargo: '0'
       'display_field_copy:node-raw_metadata':
         plugin_id: 'display_field_copy:node-raw_metadata'
         weight: 0
@@ -31,12 +49,12 @@ third_party_settings:
         formatter: strawberry_metadata_formatter
         settings:
           formatter:
-            iiif_base_url: 'http://localhost:8183/iiif/2'
+            iiif_base_url: 'https://archives.nypublicradio.org/cantaloupe/iiif/2'
             iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
             use_iiif_globals: '1'
             label: 'Descriptive Metadata'
             specs: 'http://schema.org'
-            metadatadisplayentity_uuid: bde1cb38-e1b8-4f2d-bc1c-bff646d2e8b7
+            metadatadisplayentity_uuid: f143a7a0-17c3-4dad-b396-e7e5c05d4bf0
             metadatadisplayentity_uselabel: '0'
             hide_on_embargo: '0'
   field_layout:
@@ -47,11 +65,27 @@ id: node.digital_object_collection.digital_object_and_collection_search_api_rend
 targetEntityType: node
 bundle: digital_object_collection
 mode: digital_object_and_collection_search_api_rendered_item
-content: {  }
+content:
+  field_descriptive_metadata:
+    type: strawberry_metadata_formatter
+    label: hidden
+    settings:
+      iiif_base_url: 'https://archives.nypublicradio.org/cantaloupe/iiif/2'
+      iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
+      use_iiif_globals: '1'
+      label: 'Raw Metadata (JSON)'
+      specs: 'http://schema.org'
+      metadatadisplayentity_uuid: 998d30c0-57b7-4219-bcff-6ac2c0bf6563
+      metadatadisplayentity_uselabel: '0'
+      upload_json_key_source: ''
+      embargo_json_key_source: ''
+      hide_on_embargo: '0'
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   body: true
   content_moderation_control: true
-  field_descriptive_metadata: true
   langcode: true
   links: true
   search_api_excerpt: true

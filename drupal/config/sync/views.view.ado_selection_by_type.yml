@@ -511,7 +511,7 @@ display:
         - 'search_api_list:default_solr_index'
   entity_reference_1:
     id: entity_reference_1
-    display_title: 'Entity Reference'
+    display_title: "Entity Reference (SQL, don't select Solr Autocomplete for this)"
     display_plugin: entity_reference
     position: 1
     display_options:
@@ -530,7 +530,9 @@ display:
             title: title
           separator: '-'
           hide_empty: false
-      display_extenders: {  }
+      display_description: ''
+      display_extenders:
+        sbf_ajax_interactions: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -544,7 +546,7 @@ display:
         - 'search_api_list:default_solr_index'
   entity_reference_solr_1:
     id: entity_reference_solr_1
-    display_title: 'Solr Search API Entity Reference for Photographs'
+    display_title: 'Solr Search API Entity Reference (defaults to Photographs, pass any other via arguments)'
     display_plugin: entity_reference_solr
     position: 1
     display_options:
@@ -684,11 +686,12 @@ display:
         - 'search_api_list:default_solr_index'
   entity_reference_solr_creativeworks:
     id: entity_reference_solr_creativeworks
-    display_title: 'Solr Search API Entity Reference for Creative Works'
+    display_title: 'Solr Search API Entity Reference (defaults to Creative Works, pass any other via Argument)'
     display_plugin: entity_reference_solr
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        sbf_ajax_interactions: {  }
       style:
         type: entity_reference
         options:

@@ -12,7 +12,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_digitalobjecttype_advancedsearch
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -7
+weight: -26
 provider: null
 plugin: 'facet_block:digital_object_type_for_modern_advanced_search'
 settings:

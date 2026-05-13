@@ -7,6 +7,7 @@ dependencies:
   module:
     - block_content
     - context
+    - user
   theme:
     - archipelago_subtheme_chiloe
 id: archipelago_subtheme_chiloe_advancedsearchblock
@@ -29,3 +30,11 @@ visibility:
     negate: false
     view_inclusion:
       view-advanced_search-page_1: view-advanced_search-page_1
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      metadata_pro: metadata_pro
