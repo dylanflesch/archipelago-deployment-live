@@ -478,55 +478,6 @@ display:
           parse_mode: terms
           min_length: 3
           fields: {  }
-        str_flatten_keys:
-          id: str_flatten_keys
-          table: search_api_index_default_solr_index
-          field: str_flatten_keys
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_string
-          operator: '!='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: str_flatten_keys_op
-            label: '🍓 Strawberry (Descriptive Metadata source) » JSON keys defined in this field'
-            description: ''
-            use_operator: true
-            operator: str_flatten_keys_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: str_flatten_keys
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              metadata_api: '0'
-              metadata_pro: '0'
-              nypr_staff: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
         type:
           id: type
           table: search_api_index_default_solr_index
