@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.digital_object
+    - node.type.digital_object_collection
     - search_api.index.default_solr_index
   module:
     - search_api
@@ -388,9 +390,64 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      title: 'Related Objects (Children) of this Object'
+      arguments:
+        any_parent_nid:
+          id: any_parent_nid
+          table: search_api_index_default_solr_index
+          field: any_parent_nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: node
+          default_argument_options: {  }
+          summary_options: {  }
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: ado_access
+            fail: 'not found'
+          validate_options:
+            bundles:
+              digital_object: digital_object
+              digital_object_collection: digital_object_collection
+            access: 1
+            operation: view_embargoed
+            multiple: '0'
+          break_phrase: false
+          not: false
+      defaults:
+        title: false
+        arguments: false
+        header: false
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "{% set ado_type = \"Collection\" %}\r\n{% if arguments.any_parent_nid is not empty %}\r\n   {% set contextual_ado = bamboo_load_entity('node',  raw_arguments.any_parent_nid|sbf_render|raw) %}\r\n   {% if contextual_ado %}\r\n     {% set raw_json =  contextual_ado.field_descriptive_metadata.0.value|default('{}')|sbf_json_decode %}\r\n     {% if  raw_json['type'] is not empty %}\r\n        {% if  raw_json['type'] is not iterable  %}\r\n           {% set ado_type = raw_json['type'] %}\r\n        {% else %}\r\n          {% set ado_type = raw_json['type']|first %}\r\n       {% endif %}\r\n    {% endif %}\r\n  {% endif %}\r\n{% endif %}\r\n<h3>For this {{ ado_type}} </h3>"
+            format: full_html
+          tokenize: true
       display_extenders:
         sbf_ajax_interactions: {  }
-      block_description: 'Collection Children Listing'
+      block_description: 'ADO (Digital Object Collection) Children Listing'
       block_hide_empty: true
       allow:
         items_per_page: true
@@ -401,7 +458,7 @@ display:
         disable_filters: '0'
         configure_sorts: '0'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

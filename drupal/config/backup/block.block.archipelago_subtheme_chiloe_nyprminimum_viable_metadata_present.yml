@@ -1,0 +1,30 @@
+uuid: 384c090e-29b8-432f-8013-bfe1937c45cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.nypr_minimum_viable_metadata_present
+  module:
+    - context
+    - facets
+  theme:
+    - archipelago_subtheme_chiloe
+id: archipelago_subtheme_chiloe_nyprminimum_viable_metadata_present
+theme: archipelago_subtheme_chiloe
+region: sidebar_first
+weight: 2
+provider: null
+plugin: 'facet_block:nypr_minimum_viable_metadata_present'
+settings:
+  id: 'facet_block:nypr_minimum_viable_metadata_present'
+  label: 'Minimum Viable Metadata'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: archipelago_subtheme_chiloe_nyprminimum_viable_metadata_present
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content_with_find_and_replace-page_1: view-solr_search_content_with_find_and_replace-page_1

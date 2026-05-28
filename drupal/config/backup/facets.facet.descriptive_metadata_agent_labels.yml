@@ -17,7 +17,7 @@ url_alias: descriptive_metadata_agent_labels
 facet_source_id: 'search_api:views_page__solr_search_content__page_1'
 field_identifier: agents
 query_operator: and
-hard_limit: 0
+hard_limit: 100
 exclude: false
 use_hierarchy: false
 keep_hierarchy_parents_active: false
@@ -30,7 +30,7 @@ widget:
   type: links
   config:
     show_numbers: true
-    soft_limit: 0
+    soft_limit: 50
     show_reset_link: false
     reset_text: 'Show all'
     hide_reset_when_no_selection: false

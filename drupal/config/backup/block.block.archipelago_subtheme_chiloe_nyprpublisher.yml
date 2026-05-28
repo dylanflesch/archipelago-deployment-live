@@ -1,0 +1,30 @@
+uuid: f33803ff-cec3-4cbd-a271-92657bf20476
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.nypr_publisher
+  module:
+    - context
+    - facets
+  theme:
+    - archipelago_subtheme_chiloe
+id: archipelago_subtheme_chiloe_nyprpublisher
+theme: archipelago_subtheme_chiloe
+region: sidebar_first
+weight: -14
+provider: null
+plugin: 'facet_block:nypr_publisher'
+settings:
+  id: 'facet_block:nypr_publisher'
+  label: Publisher
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: archipelago_subtheme_chiloe_nyprpublisher
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content-page_1: view-solr_search_content-page_1

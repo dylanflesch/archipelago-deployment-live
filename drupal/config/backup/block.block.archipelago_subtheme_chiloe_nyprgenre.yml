@@ -1,0 +1,30 @@
+uuid: aa0f251b-4194-47c6-a7a0-050518f4679d
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.nypr_genre
+  module:
+    - context
+    - facets
+  theme:
+    - archipelago_subtheme_chiloe
+id: archipelago_subtheme_chiloe_nyprgenre
+theme: archipelago_subtheme_chiloe
+region: sidebar_first
+weight: -17
+provider: null
+plugin: 'facet_block:nypr_genre'
+settings:
+  id: 'facet_block:nypr_genre'
+  label: Genres
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: archipelago_subtheme_chiloe_nyprgenre
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content-page_1: view-solr_search_content-page_1

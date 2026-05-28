@@ -31,6 +31,7 @@ processor_configs:
       enable: 1
       enable_empty_message: 1
       enable_query: 1
+      multiple_query: 0
       quote_query: false
       text:
         format: plain_text
@@ -75,6 +76,30 @@ facets:
   mime_type:
     checked: true
     label: 'MIME Type'
+    separator: ', '
+    show_count: false
+    weight: 0
+  nypr_genre:
+    checked: true
+    label: 'NYPR Genre'
+    separator: ', '
+    show_count: false
+    weight: 0
+  nypr_medium:
+    checked: true
+    label: 'NYPR Medium'
+    separator: ', '
+    show_count: false
+    weight: 0
+  nypr_primary_language:
+    checked: true
+    label: 'NYPR Primary Language'
+    separator: ', '
+    show_count: false
+    weight: 0
+  nypr_publisher:
+    checked: true
+    label: 'NYPR » Publisher'
     separator: ', '
     show_count: false
     weight: 0

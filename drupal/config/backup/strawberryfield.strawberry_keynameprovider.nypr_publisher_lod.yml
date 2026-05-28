@@ -1,0 +1,13 @@
+uuid: f93dc947-dab3-4344-b832-1f631078169e
+langcode: en
+status: true
+dependencies: {  }
+id: nypr_publisher_lod
+label: 'NYPR Publisher'
+pluginid: jmespath
+pluginconfig:
+  source_key: 'publisher_lod[*].name_label'
+  is_date: false
+  is_date_range: false
+  exposed_key: publisher_label
+active: true

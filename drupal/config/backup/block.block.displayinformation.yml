@@ -11,7 +11,7 @@ dependencies:
 id: displayinformation
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -1
+weight: -4
 provider: null
 plugin: format_strawberryfield_display_information
 settings:

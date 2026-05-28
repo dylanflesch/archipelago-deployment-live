@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies: {  }
 id: nypr_description
-label: NYPR-Description
+label: 'NYPR Description'
 pluginid: jmespath
 pluginconfig:
-  source_key: description.value
+  source_key: 'description.value, descriptions[*].description'
   is_date: false
   is_date_range: false
   exposed_key: description_value

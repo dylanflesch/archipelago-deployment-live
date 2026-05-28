@@ -87,7 +87,8 @@ display:
           buttons: false
           action_title: Action
           clear_on_exposed: true
-          force_selection_info: true
+          show_multipage_selection_box: default
+          show_select_all: default
           selected_actions:
             -
               action_id: 'entity:ami_csvexport_action:node'
@@ -523,6 +524,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: default
         options:

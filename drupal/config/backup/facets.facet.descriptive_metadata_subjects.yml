@@ -17,7 +17,7 @@ url_alias: descriptive_metadata_subjects
 facet_source_id: 'search_api:views_page__solr_search_content__page_1'
 field_identifier: subject_labels
 query_operator: and
-hard_limit: 0
+hard_limit: 50
 exclude: false
 use_hierarchy: false
 keep_hierarchy_parents_active: false

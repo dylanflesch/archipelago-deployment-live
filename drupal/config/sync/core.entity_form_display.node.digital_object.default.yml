@@ -27,8 +27,8 @@ content:
     weight: 0
     region: content
     settings:
-      placeholder: 'Descriptive Metadata'
-      webform_id: default_descriptive_metadata
+      placeholder: 'Instantiation Metadata'
+      webform_id: nypr_insta_essences_metadata
       render_always: false
       hide_cancel: false
     third_party_settings: {  }

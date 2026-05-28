@@ -120,6 +120,8 @@ permissions:
   - 'use editorial transition create_new_draft'
   - 'use editorial transition publish'
   - 'use node.default form mode'
+  - 'use node.test_child_webform form mode'
+  - 'use node.test_parent_webform form mode'
   - 'use text format full_html'
   - 'use text format restricted_html'
   - 'view all revisions'

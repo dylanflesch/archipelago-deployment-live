@@ -11,7 +11,7 @@ uid: 8
 template: false
 archive: false
 id: nypr_assets_parents_metadata
-title: 'WIP: Assets (Parent) Metadata'
+title: 'NYPR Assets (Parent) Metadata'
 description: 'NYPR Assets (Parent) Metadata'
 categories:
   - Archipelago
@@ -262,7 +262,7 @@ elements: |-
           display_name: entity_reference_solr_1
           arguments:
             - Series
-    identifiers:
+    local_identifiers:
       '#type': webform_custom_composite
       '#title': Identifiers
       '#states_clear': false
@@ -318,7 +318,7 @@ elements: |-
         '#multiple__add_more': false
         '#element':
           type:
-            '#type': textfield
+            '#type': textarea
             '#title': Type
           value:
             '#type': textfield

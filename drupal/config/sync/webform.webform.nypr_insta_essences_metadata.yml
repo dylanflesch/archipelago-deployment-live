@@ -11,8 +11,8 @@ uid: 8
 template: false
 archive: false
 id: nypr_insta_essences_metadata
-title: 'WIP: Instantiations and Essences Metadata'
-description: 'NYPR Specific Instantiations and Essences Metadata Webform'
+title: 'NYPR Instantiations Metadata'
+description: 'NYPR Instantiations Metadata Webform'
 categories:
   - Archipelago
 elements: |-
@@ -93,23 +93,6 @@ elements: |-
             value: WebPage
       '#states_clear': false
       '#format_items': comma
-    medium:
-      '#type': select
-      '#title': Medium
-      '#multiple': true
-      '#help': 'For Digital Object Collections, recommended selections from the&nbsp;<a href="/admin/structure/webform/config/options/manage">predefined options</a>&nbsp;found in the Schema.org Creative Works list are: Collection, Creative Work Series (Compound Object/Collection), Newspaper, or Periodical.'
-      '#options': medium
-      '#states':
-        visible:
-          - ':input[name="type"]':
-              value: Episode
-          - or
-          - ':input[name="type"]':
-              value: Segment
-      '#states_clear': false
-      '#label_attributes':
-        class:
-          - custom-form-input-heading
     dates_edtf:
       '#type': webform_custom_composite
       '#title': 'Dates (EDTF)'
@@ -160,7 +143,6 @@ elements: |-
         descriptions:
           '#type': webform_custom_composite
           '#title': Descriptions
-          '#multiple': 10
           '#states_clear': false
           '#multiple__min_items': 1
           '#multiple__empty_items': 0
@@ -230,6 +212,68 @@ elements: |-
           '#rdftype_family_name': FamilyName
           '#role_type': customlod
           '#role_custom_lod': pbcore_creator_and_contributor_role_vocabulary
+    instantiation_details:
+      '#type': fieldset
+      '#title': 'Instantiation Details'
+      '#states_clear': false
+      medium:
+        '#type': select
+        '#title': Medium
+        '#multiple': true
+        '#options': medium
+        '#states':
+          visible:
+            - ':input[name="type"]':
+                value: DigitalInstantiation
+            - or
+            - ':input[name="type"]':
+                value: PhysicalInstantiation
+        '#states_clear': false
+        '#label_attributes':
+          class:
+            - custom-form-input-heading
+      physical_description:
+        '#type': textfield
+        '#title': Format
+        '#multiple': 5
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+      duration:
+        '#type': webform_custom_composite
+        '#title': Duration
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#element':
+          value:
+            '#type': textfield
+            '#title': 'Duration Time'
+      physical_location:
+        '#type': textfield
+        '#title': 'Physical Location'
+        '#multiple': 5
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+      generations:
+        '#type': webform_custom_composite
+        '#title': Generations
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#element':
+          value:
+            '#type': textfield
+            '#title': Generation
   relationships_and_administrative_info:
     '#type': webform_wizard_page
     '#title': 'Relationships and Administrative Information'
@@ -262,7 +306,7 @@ elements: |-
             - Series
     ispartof:
       '#type': entity_autocomplete
-      '#title': 'Part of a Creative Work Series'
+      '#title': 'Part of Asset (Parent)'
       '#description': 'Select a parent Creative Work Series ADO'
       '#help': 'Use this element to attach this Object to a Creative Work Series ADO (Collection type). This works similar to the legacy &quot;Compounding&quot; idea.'
       '#unique': true
@@ -288,7 +332,7 @@ elements: |-
       '#min': 1
       '#max': 10000
       '#step': 1
-    identifiers:
+    local_identifiers:
       '#type': webform_custom_composite
       '#title': Identifiers
       '#states_clear': false
@@ -347,11 +391,24 @@ elements: |-
             '#type': textfield
             '#title': Type
           value:
-            '#type': textfield
+            '#type': textarea
             '#title': Value
   essences_information:
     '#type': webform_wizard_page
     '#title': 'Essences Information'
+    essence_tracks:
+      '#type': webform_computed_twig
+      '#title': 'Essence Tracks'
+      '#display_on': form
+      '#mode': html
+      '#template': |-
+        <p>Placeholder for now. Speciality webform element needed for this nested (array) data element.</p>
+        {% if data.essence_tracks|length > 0 %}
+        {% for track in attribute(data, 'essence_tracks') %}
+        <p>Type: {{ track.type }}</p>
+        {% endfor %}
+        {% endif %}
+      '#whitespace': trim
   agent:
     '#type': webform_wizard_page
     '#title': 'Subjects and Other Classifications'
@@ -530,6 +587,9 @@ elements: |-
       '#states':
         visible:
           - ':input[name="type"]':
+              value: DigitalInstantiation
+          - or
+          - ':input[name="type"]':
               value: AudioObject
           - or
           - ':input[name="type"]':
@@ -537,9 +597,6 @@ elements: |-
           - or
           - ':input[name="type"]':
               value: Podcast
-          - or
-          - ':input[name="type"]':
-              value: Conversation
       '#states_clear': false
       '#format_items': comma
       '#file_preview': file

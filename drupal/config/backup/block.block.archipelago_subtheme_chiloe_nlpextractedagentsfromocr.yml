@@ -12,7 +12,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_nlpextractedagentsfromocr
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -2
+weight: -5
 provider: null
 plugin: 'facet_block:nlp_extracted_agents_from_ocr'
 settings:
