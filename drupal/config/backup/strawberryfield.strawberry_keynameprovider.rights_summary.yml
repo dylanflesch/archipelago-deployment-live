@@ -1,0 +1,13 @@
+uuid: 1e5ded94-04b0-4033-978f-541005f6a9a0
+langcode: en
+status: true
+dependencies: {  }
+id: rights_summary
+label: 'NYPR rights_summary (future?)'
+pluginid: jmespath
+pluginconfig:
+  source_key: rights_summary
+  is_date: false
+  is_date_range: false
+  exposed_key: rights_summary
+active: true

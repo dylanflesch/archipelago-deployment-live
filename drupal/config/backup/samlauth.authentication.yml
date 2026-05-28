@@ -1,0 +1,68 @@
+_core:
+  default_config_hash: U_osGwFmSBlCxLj13jTNB0qVtGbS876-wUPqWc74K6A
+login_menu_item_title: 'Staff Login'
+logout_menu_item_title: 'Staff Logout'
+login_link_title: ''
+login_auto_redirect: false
+login_redirect_url: /
+logout_redirect_url: /
+error_redirect_url: ''
+error_throw: false
+login_error_keep_session: false
+local_login_saml_error: true
+logout_different_user: true
+drupal_login_roles:
+  administrator: administrator
+  metadata_api: metadata_api
+  metadata_pro: metadata_pro
+sp_entity_id: 'https://archives.nypublicradio.org'
+sp_name_id_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
+sp_x509_certificate: 'file:private://nypr.crt'
+sp_new_certificate: ''
+sp_private_key: 'file:private://nypr.key'
+metadata_valid_secs: 60
+metadata_cache_http: false
+idp_entity_id: 'https://sts.windows.net/552c41d4-951d-477d-9690-8a514b6bd2b0/'
+idp_single_sign_on_service: 'https://login.microsoftonline.com/552c41d4-951d-477d-9690-8a514b6bd2b0/saml2'
+idp_single_log_out_service: 'https://login.microsoftonline.com/552c41d4-951d-477d-9690-8a514b6bd2b0/saml2'
+idp_change_password_service: ''
+idp_certs:
+  - MIIC8DCCAdigAwIBAgIQZBBa3SIaM5lG/ZAYafYuUTANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0yNjA0MTAxOTM2MjNaFw0yOTA0MTAxOTM2MjJaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+q+A8rnhJ0+UKmnkeQSo9lnt7DUov6Y10s/+GoaPbncaLk2987/AK6s5blChg1BP9ANLauUNvSkDzpWgrVsRLjhyqmQgz2GtUa0QKJYbZC+PA7hlaEGkDLEaHWRWdgfi1jdPSeN7nxus/kv90MF6jgFdUKIRzuFyrCZah8TX43oEucFU2uNuOC6T8bcZk6+dKjsCo64n/Fi/iWHW66VUXic5YxhzXjDWupQRPWckHZt/B4dIxjLiMZJgtSC0kynv5sS4KBJyfYsURFRnAfRtHkoYj1kRoKMsfM1YfhJtyt1bl7LorB0bvw4BgGYxmIfpN/MckWdqxviuTQLhju1HFQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQCPvPHXz2LJOKVVyxhhFK1drk7DxtEePqc9fzDFBDEzfHlaX9yzgJuP44AcDC05q1d6AfYGFLyN2Gba4AuSwf3kKMdl60Z4gjLwZ9f16AIhgxVKPD584bK3sE4EL91iCTYKsqzBwENCu5BuCHv97/ME+EVHdpYCQ9/4aayYnZczAR8pU0reRlWAJydgs9AMUx7+jupVylVMjhYYfLcQ5cKW+TjAN1M4js8n37N7v0062GqwwZi8+1GtmJ5ThypEL0+Hdo0C4WgAqSSLWpNNehItRvhWuyuNti3yu647WDgrHrsTUS5AKrb8FcQWg9c4BnmsvJsEUEtlZaTFQfs9zPEF
+idp_cert_encryption: ''
+unique_id_attribute: '!nameid'
+map_users: false
+map_users_name: false
+map_users_mail: true
+map_users_roles:
+  nypr_staff: nypr_staff
+create_users: true
+sync_name: false
+sync_mail: false
+user_name_attribute: 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'
+user_mail_attribute: 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'
+request_set_name_id_policy: true
+strict: true
+security_metadata_sign: true
+security_authn_requests_sign: true
+security_logout_requests_sign: true
+security_logout_responses_sign: true
+security_nameid_encrypt: false
+security_signature_algorithm: ''
+security_encryption_algorithm: ''
+security_messages_sign: false
+security_assertions_signed: false
+security_assertions_encrypt: false
+security_nameid_encrypted: false
+security_want_name_id: true
+security_request_authn_context: false
+security_lowercase_url_encoding: true
+security_logout_reuse_sigs: false
+security_allow_repeat_attribute_name: false
+debug_display_error_details: false
+debug_log_in: false
+debug_log_saml_in: true
+debug_log_saml_out: false
+debug_phpsaml: false
+use_proxy_headers: false
+use_base_url: true
+bypass_relay_state_check: false

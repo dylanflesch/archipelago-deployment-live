@@ -1,0 +1,14 @@
+uuid: 6a41772f-081f-484c-befd-7dd71f98dcbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.nypr_staff
+  module:
+    - user
+id: user_add_role_action.nypr_staff
+label: 'Add the NYPR Staff role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: nypr_staff

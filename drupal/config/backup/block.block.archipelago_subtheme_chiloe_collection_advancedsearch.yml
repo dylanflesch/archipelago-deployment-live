@@ -12,7 +12,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_collection_advancedsearch
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -8
+weight: -11
 provider: null
 plugin: 'facet_block:collection_membership_for_modern_advanced_search'
 settings:

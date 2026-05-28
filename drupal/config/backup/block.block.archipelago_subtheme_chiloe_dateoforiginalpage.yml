@@ -12,7 +12,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_dateoforiginalpage
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -24
+weight: -30
 provider: null
 plugin: 'facet_block:date_of_original_page'
 settings:

@@ -2,6 +2,8 @@ uuid: a4e54737-1690-45bb-9ea5-a3886eef9b72
 langcode: en
 status: true
 dependencies:
+  module:
+    - user
   theme:
     - archipelago_subtheme_chiloe
 _core:
@@ -19,4 +21,13 @@ settings:
   provider: core
   primary: true
   secondary: false
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+      metadata_pro: metadata_pro

@@ -55,12 +55,6 @@ processor_configs:
       pre_query: 50
     settings:
       enabled: 1
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: 30
-    settings:
-      sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:

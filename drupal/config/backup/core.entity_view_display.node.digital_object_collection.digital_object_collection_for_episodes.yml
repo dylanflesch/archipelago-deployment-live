@@ -50,7 +50,7 @@ third_party_settings:
             use_iiif_globals: '1'
             label: 'Descriptive Metadata'
             specs: 'http://schema.org'
-            metadatadisplayentity_uuid: 8e0e323b-bbac-4245-acde-b187aed7e705
+            metadatadisplayentity_uuid: 5829f12d-e959-4093-bd77-1e0413d7795b
             metadatadisplayentity_uselabel: '0'
             hide_on_embargo: '0'
   field_layout:

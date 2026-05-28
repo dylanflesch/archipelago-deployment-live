@@ -1,4 +1,4 @@
-uuid: eed81010-008d-45f1-8287-148d85aa30db
+uuid: 8749c457-b08c-42e0-b8e1-f3a4a52941bc
 langcode: en
 status: open
 dependencies:
@@ -7,12 +7,12 @@ dependencies:
 weight: 0
 open: null
 close: null
-uid: 4
+uid: 8
 template: false
 archive: false
-id: default_descriptive_metadata
-title: 'Experimental/Unfinished Work: Default Instantiation Form (NYPR)'
-description: 'Experimental/Unfinished Work: Expanding on template: Default Descriptive Metadata Webform: 1.3.0.'
+id: nypr_insta_essences_metadata
+title: 'WIP: Instantiations and Essences Metadata'
+description: 'NYPR Specific Instantiations and Essences Metadata Webform'
 categories:
   - Archipelago
 elements: |-
@@ -50,15 +50,27 @@ elements: |-
       '#access_update_roles':
         - administrator
         - metadata_pro
-    media_type:
-      '#type': select
-      '#title': 'Instantiation Type'
-      '#help': 'Please select from the&nbsp;<a href="/admin/structure/webform/config/options/manage">predefined options</a>&nbsp;found in the Schema.org Creative Works list.'
-      '#options': instantiation_type
+    label_alt:
+      '#type': textfield
+      '#title': 'Alternative Title'
+      '#description': 'Please provide a brief alternative title for this asset.'
+      '#title_display': before
+      '#description_display': before
+      '#minlength': 3
+      '#maxlength': 256
+      '#placeholder': 'Title of this Object'
+      '#required_error': 'Please provide a brief title for this asset.'
       '#states_clear': false
       '#label_attributes':
         class:
           - custom-form-input-heading
+      '#format_items': comma
+      '#access_create_roles':
+        - administrator
+        - metadata_pro
+      '#access_update_roles':
+        - administrator
+        - metadata_pro
     type:
       '#type': select
       '#title': 'Media Type'
@@ -69,23 +81,174 @@ elements: |-
       '#label_attributes':
         class:
           - custom-form-input-heading
-    date_created_edtf:
-      '#type': webform_metadata_date
-      '#title': 'Date Created (EDTF)'
+    website_url:
+      '#type': url
+      '#title': 'URL of the original Website'
+      '#description': 'Please add a common base URL for this resource'
+      '#help_title': 'What is this field used for?'
+      '#help': 'When uploading a <em>WARC/WACZ file</em>, this is the <em>URL</em> that will be loaded initially on display. Please make sure it actually exists inside your Web Archive.'
+      '#states':
+        visible:
+          ':input[name="type"]':
+            value: WebPage
       '#states_clear': false
       '#format_items': comma
-      '#showfreeformalways': true
-      '#edtf_validateme': true
-      '#date_date_format': ''
-  collection_and_administrative_info:
+    medium:
+      '#type': select
+      '#title': Medium
+      '#multiple': true
+      '#help': 'For Digital Object Collections, recommended selections from the&nbsp;<a href="/admin/structure/webform/config/options/manage">predefined options</a>&nbsp;found in the Schema.org Creative Works list are: Collection, Creative Work Series (Compound Object/Collection), Newspaper, or Periodical.'
+      '#options': medium
+      '#states':
+        visible:
+          - ':input[name="type"]':
+              value: Episode
+          - or
+          - ':input[name="type"]':
+              value: Segment
+      '#states_clear': false
+      '#label_attributes':
+        class:
+          - custom-form-input-heading
+    dates_edtf:
+      '#type': webform_custom_composite
+      '#title': 'Dates (EDTF)'
+      '#states_clear': false
+      '#multiple__min_items': 1
+      '#multiple__empty_items': 0
+      '#multiple__sorting': false
+      '#multiple__add_more': false
+      '#element':
+        date:
+          '#type': webform_edtf_date
+          '#title': 'Date (EDTF)'
+        date_type:
+          '#type': webform_select_other
+          '#options': pbcore_datetype_vocabulary
+          '#title': 'Date Type'
+    date_embargo_lift:
+      '#type': date
+      '#title': 'Date of Embargo Lift'
+      '#description': 'Date that contains an embargo lift date that will be used to Embargo Metadata and Media.'
+      '#title_display': before
+      '#description_display': before
+      '#states':
+        visible:
+          - ':input[name="type"]':
+              value: CreativeWorkSeries
+          - or
+          - ':input[name="type"]':
+              value: Newspaper
+          - or
+          - ':input[name="type"]':
+              value: Periodical
+          - or
+          - ':input[name="type"]':
+              value: Publication
+      '#states_clear': false
+      '#format_items': comma
+      '#access_create_roles':
+        - administrator
+      '#datepicker': true
+    description_fieldset:
+      '#type': fieldset
+      '#title': Description
+      '#states_clear': false
+      description_details:
+        '#type': details
+        '#title': Description
+        descriptions:
+          '#type': webform_custom_composite
+          '#title': Descriptions
+          '#multiple': 10
+          '#states_clear': false
+          '#multiple__min_items': 1
+          '#multiple__empty_items': 0
+          '#multiple__sorting': false
+          '#multiple__add_more': false
+          '#element':
+            description_type:
+              '#type': textfield
+              '#title': 'Description Type'
+            description:
+              '#type': textarea
+              '#title': 'Description Value'
+    contributor_publisher_fieldset:
+      '#type': fieldset
+      '#title': 'Contributors and Producing Organization'
+      '#help_title': 'Contributors and Publisher Help'
+      '#help': 'Individual(s)/Organization(s) responsible for creating the original resource.'
+      '#description_display': before
+      contributor_lod_details:
+        '#type': details
+        '#title': Contributors
+        '#description': 'You can select to search from the LCNAF&#39;s Personal, Corporate, or Family Names Classes (<a href="https://id.loc.gov/ontologies/madsrdf/v1.html">listed here</a>). Roles information is being sourced from <a href="https://id.loc.gov/vocabulary/relators.html">LoC Relators terms</a>.'
+        '#states_clear': false
+        contributor_lod:
+          '#type': webform_metadata_multiagent
+          '#title': Contributors
+          '#multiple': true
+          '#multiple__min_items': 1
+          '#multiple__empty_items': 0
+          '#multiple__sorting': false
+          '#multiple__add_more': false
+          '#format_items': ol
+          '#agent_type__placeholder': 'Select Contributor Type'
+          '#name_label__title': ' Name'
+          '#name_uri__title': 'Contributor URI'
+          '#role_uri__title': 'Role URI'
+          '#vocab_personal_name': rdftype
+          '#rdftype_personal_name': PersonalName
+          '#vocab_corporate_name': rdftype
+          '#rdftype_corporate_name': CorporateName
+          '#vocab_family_name': rdftype
+          '#rdftype_family_name': FamilyName
+          '#role_type': customlod
+          '#role_custom_lod': pbcore_creator_and_contributor_role_vocabulary
+      publisher_lod_details:
+        '#type': details
+        '#title': 'Producing Organization'
+        '#description': 'You can select to search from the LCNAF&#39;s Personal, Corporate, or Family Names Classes (<a href="https://id.loc.gov/ontologies/madsrdf/v1.html">listed here</a>). Roles information is being sourced from <a href="https://id.loc.gov/vocabulary/relators.html">LoC Relators terms</a>.'
+        publisher_lod:
+          '#type': webform_metadata_multiagent
+          '#title': 'Producing Organization'
+          '#multiple': true
+          '#multiple__min_items': 1
+          '#multiple__empty_items': 0
+          '#multiple__sorting': false
+          '#multiple__add_more': false
+          '#format_items': ol
+          '#agent_type__placeholder': 'Select Publisher Type'
+          '#name_label__title': ' Name'
+          '#name_uri__title': 'Publisher URI'
+          '#role_uri__title': 'Role URI'
+          '#vocab_personal_name': rdftype
+          '#rdftype_personal_name': PersonalName
+          '#vocab_corporate_name': rdftype
+          '#rdftype_corporate_name': CorporateName
+          '#vocab_family_name': rdftype
+          '#rdftype_family_name': FamilyName
+          '#role_type': customlod
+          '#role_custom_lod': pbcore_creator_and_contributor_role_vocabulary
+  relationships_and_administrative_info:
     '#type': webform_wizard_page
-    '#title': 'Collection and Administrative Information'
-    '#states_clear': false
+    '#title': 'Relationships and Administrative Information'
     '#prev_button_label': 'Back to the previous step'
     '#next_button_label': 'Move on to next step'
     ismemberof:
       '#type': entity_autocomplete
-      '#title': 'Parent Asset'
+      '#title': 'Part of Collection'
+      '#unique': true
+      '#states_clear': false
+      '#format_items': comma
+      '#target_type': node
+      '#selection_handler': 'default:node'
+      '#selection_settings':
+        target_bundles:
+          digital_object_collection: digital_object_collection
+    ismemberofseries:
+      '#type': entity_autocomplete
+      '#title': 'Part of Series'
       '#unique': true
       '#states_clear': false
       '#format_items': comma
@@ -94,15 +257,14 @@ elements: |-
       '#selection_settings':
         view:
           view_name: ado_selection_by_type
-          display_name: entity_reference_solr_creativeworks
+          display_name: entity_reference_solr_1
           arguments:
-            - Segment
-            - Episode
+            - Series
     ispartof:
       '#type': entity_autocomplete
-      '#title': 'Is Part Of'
+      '#title': 'Part of a Creative Work Series'
       '#description': 'Select a parent Creative Work Series ADO'
-      '#help': "For use when this instsantiation is incomplete on it's own. For instance, it's the first hour of a two hour aircheck. Enter the same parent asset as recorded in the previous field. Entering a value in this field will also prompt you for a sequence number."
+      '#help': 'Use this element to attach this Object to a Creative Work Series ADO (Collection type). This works similar to the legacy &quot;Compounding&quot; idea.'
       '#unique': true
       '#states_clear': false
       '#format_items': comma
@@ -126,15 +288,6 @@ elements: |-
       '#min': 1
       '#max': 10000
       '#step': 1
-    owner:
-      '#type': textfield
-      '#title': 'Institutional owner'
-      '#title_display': before
-      '#states_clear': false
-      '#label_attributes':
-        class:
-          - custom-form-input-heading
-      '#format_items': comma
     identifiers:
       '#type': webform_custom_composite
       '#title': Identifiers
@@ -157,116 +310,11 @@ elements: |-
             'Source Storage Path': 'Source Storage Path'
             'WNYC Archive Catalog Number': 'WNYC Archive Catalog Number'
             'WNYC Media Archive Label': 'WNYC Media Archive Label'
+            'Archives Series Code': 'Archives Series Code'
           '#title': Source
-        identifier:
+        value:
           '#type': textfield
           '#title': Identifier
-    rights_statements:
-      '#type': select
-      '#title': 'Rights Statement'
-      '#description': '<p>Please select one of the 12 standarized rights statements from <a href="https://rightsstatements.org/page/1.0/">RightsStatements.org</a>.</p>'
-      '#help_title': RightsStatement.org
-      '#help': '<p>RightsStatements.org provides a set of standardized rights statements that can be used to communicate the copyright and re-use status of digital objects to the public. Our rights statements are supported by major aggregation platforms such as the Digital Public Library of America and Europeana. The rights statements have been designed with both human users and machine users (such as search engines) in mind and make use of semantic web technology. Learn more about how you can use our rights statements&nbsp;<a href="https://rightsstatements.org/en/documentation#use-by-cultural-heritage-institutions">here</a>.</p>'
-      '#title_display': before
-      '#description_display': before
-      '#options':
-        'In Copyright': 'In Copyright'
-        'In Copyright - EU Orphan Work': 'In Copyright - EU Orphan Work'
-        'In Copyright - Educational Use Permitted': 'In Copyright - Educational Use Permitted'
-        'In Copyright - Non-Commercial Use Permitted': 'In Copyright - Non-Commercial Use Permitted'
-        'In Copyright - Rights-holder(s) Unlocatable or Unidentifiable': 'In Copyright - Rights-holder(s) Unlocatable or Unidentifiable'
-        'No Copyright - Contractual Restrictions': 'No Copyright - Contractual Restrictions'
-        'No Copyright - Non-Commercial Use Only': 'No Copyright - Non-Commercial Use Only'
-        'No Copyright - Other Known Legal Restrictions': 'No Copyright - Other Known Legal Restrictions'
-        'No Copyright - United States': 'No Copyright - United States'
-        'Copyright Not Evaluated': 'Copyright Not Evaluated'
-        'Copyright Undetermined': 'Copyright Undetermined'
-        'No Known Copyright': 'No Known Copyright'
-      '#states_clear': false
-    rights_inc:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'In Copyright'
-      '#markup': '<img alt="In Copyright" height="31" src="https://rightsstatements.org/files/buttons/InC.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/InC/1.0/">In Copyright</a>'
-    rights_inc_ow_eu:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'In Copyright - EU Orphan Work'
-      '#markup': '<img alt="In Copyright - EU Orphan Work" height="31" src="https://rightsstatements.org/files/buttons/InC-OW-EU.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/InC-OW-EU/1.0/">In Copyright - EU Orphan Work</a>'
-    rights_inc_edu:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'In Copyright - Educational Use Permitted'
-      '#markup': '<img alt="In Copyright - Educational Use Permitted" height="31" src="https://rightsstatements.org/files/buttons/InC-EDU.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/InC-EDU/1.0/">In Copyright - Educational Use Permitted</a>&nbsp;'
-    rights_inc_nc:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'In Copyright - Non-Commercial Use Permitted'
-      '#markup': '<img alt="In Copyright - Non-Commercial Use Permitted" height="31" src="https://rightsstatements.org/files/buttons/InC-NC.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/InC-NC/1.0/">In Copyright - Non-Commercial Use Permitted</a>'
-    rights_inc_ruu:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'In Copyright - Rights-holder(s) Unlocatable or Unidentifiable'
-      '#markup': '<img alt="In Copyright - Rights-holder(s) Unlocatable or Unidentifiable" height="31" src="https://rightsstatements.org/files/buttons/InC-RUU.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/InC-RUU/1.0/">In Copyright - Rights-holder(s) Unlocatable or Unidentifiable</a>'
-    rights_noc_cr:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'No Copyright - Contractual Restrictions'
-      '#markup': '<img alt="No Copyright - Contractual Restrictions" height="31" src="https://rightsstatements.org/files/buttons/NoC-CR.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/NoC-CR/1.0/">No Copyright - Contractual Restrictions</a>'
-    rights_noc_nc:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'No Copyright - Non-Commercial Use Only'
-      '#markup': '<img alt="No Copyright - Non-Commercial Use Only" height="31" src="https://rightsstatements.org/files/buttons/NoC-NC.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/NoC-NC/1.0/">No Copyright - Non-Commercial Use Only</a>'
-    rights_noc_oklr:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'No Copyright - Other Known Legal Restrictions'
-      '#markup': '<img alt="No Copyright - Other Known Legal Restrictions" height="31" src="https://rightsstatements.org/files/buttons/NoC-OKLR.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/NoC-OKLR/1.0/">No Copyright - Other Known Legal Restrictions</a>'
-    rights_noc_us:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'No Copyright - United States'
-      '#markup': '<img alt="No Copyright - United States" height="31" src="https://rightsstatements.org/files/buttons/NoC-US.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/NoC-US/1.0/">No Copyright - United States</a>'
-    rights_cne:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'Copyright Not Evaluated'
-      '#markup': '<img alt="Copyright Not Evaluated" height="31" src="https://rightsstatements.org/files/buttons/CNE.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/CNE/1.0/">Copyright Not Evaluated</a>'
-    rights_und:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'Copyright Undetermined'
-      '#markup': '<img alt="Copyright Undetermined" height="31" src="https://rightsstatements.org/files/buttons/UND.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/UND/1.0/">Copyright Undetermined</a>'
-    rights_nkc:
-      '#type': webform_markup
-      '#states':
-        visible:
-          ':input[name="rights_statements"]':
-            value: 'No Known Copyright'
-      '#markup': '<img alt="No Known Copyright" height="31" src="https://rightsstatements.org/files/buttons/NKC.dark-white-interior.png" width="144" />&nbsp;&nbsp;<a href="https://rightsstatements.org/vocab/NKC/1.0/">No Known Copyright</a>'
     rights:
       '#type': textarea
       '#title': 'Local Rights Statement'
@@ -286,108 +334,133 @@ elements: |-
         '#title': Provenance
         '#states_clear': false
         '#format_items': comma
-  media:
+      annotations:
+        '#type': webform_custom_composite
+        '#title': Annotations
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#element':
+          type:
+            '#type': textfield
+            '#title': Type
+          value:
+            '#type': textfield
+            '#title': Value
+  essences_information:
     '#type': webform_wizard_page
-    '#title': 'Upload Files or Describe Physical Format'
+    '#title': 'Essences Information'
+  agent:
+    '#type': webform_wizard_page
+    '#title': 'Subjects and Other Classifications'
     '#open': true
     '#prev_button_label': 'Back to previous step'
-    physical_format:
-      '#type': select
-      '#title': 'Physical Format'
-      '#help': 'Please select from the&nbsp;<a href="/admin/structure/webform/config/options/manage">predefined options</a>&nbsp;.'
-      '#options': physical_formats
-      '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
+    '#next_button_label': 'Next: Attach Files'
+    subjects_markup:
+      '#type': webform_markup
+      '#markup': '<p>Subjects and other classification terms identify&nbsp;the names, places, subjects and formats associated with the object(s) being described.&nbsp;Please assign at least one term&nbsp;from a controlled source, such as the Library of Congress or Wikidata linked data vocabularies.</p>'
+    pb_core_genre:
+      '#type': details
+      '#title': 'PB Core Genre'
       '#states_clear': false
-      '#label_attributes':
-        class:
-          - custom-form-input-heading
-    physical_format_location:
-      '#type': textfield
-      '#title': 'Physical Format Location'
-      '#description': 'Please provide a location with individual elements separated by semicolon. Include details for Facility (e.g. NYPR HQ); Room (e.g. Vault, Basement, Lab); Range #; Bay #; Shelf #; Box # (if applicable)...'
+      genres:
+        '#type': webform_custom_composite
+        '#title': Genres
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#element':
+          label:
+            '#type': textfield
+            '#title': Label
+          source:
+            '#type': textfield
+            '#title': Source
+            '#placeholder': 'PBCore Genre Picklist'
+    subjects_details:
+      '#type': details
+      '#title': 'Library of Congress Linked Data'
       '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
+        expanded:
+          '':
+            '': ''
       '#states_clear': false
-      '#label_attributes':
-        class:
-          - custom-form-input-heading
-    generation:
-      '#type': textfield
-      '#title': Generation
-      '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
-      '#states_clear': false
-      '#format_items': comma
-    dimensions:
-      '#type': textfield
-      '#title': Dimensions
-      '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
-      '#states_clear': false
-      '#format_items': comma
-    standard:
-      '#type': textfield
-      '#title': Standard
-      '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
-      '#states_clear': false
-      '#format_items': comma
-    channel_configuration:
-      '#type': textfield
-      '#title': 'Channel Configuration'
-      '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
-      '#states_clear': false
-      '#format_items': comma
-    tracks:
-      '#type': textfield
-      '#title': Tracks
-      '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
-      '#states_clear': false
-      '#format_items': comma
-    duration_physical:
-      '#type': textfield
-      '#title': Duration
-      '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
-      '#states_clear': false
-      '#format_items': comma
-    time_start:
-      '#type': textfield
-      '#title': 'Time Start'
-      '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
-      '#states_clear': false
-      '#format_items': comma
-    colors:
-      '#type': textfield
-      '#title': Colors
-      '#states':
-        visible:
-          ':input[name="media_type"]':
-            value: Physical
-      '#states_clear': false
-      '#format_items': comma
+      subject_loc:
+        '#type': webform_metadata_loc
+        '#title': 'Library of Congress Subject Headings'
+        '#multiple': 10
+        '#multiple__header': true
+        '#multiple__no_items_message': ''
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#multiple__add_more_input': false
+        '#label__title': 'Subject Label'
+        '#rdftype': ''
+      subject_lcnaf_names:
+        '#type': webform_metadata_loc
+        '#title': 'LCNAF Names'
+        '#multiple': 10
+        '#multiple__header': true
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#multiple__add_more_input': false
+        '#multiple__add_more_input_label': 'more LCNAF names'
+        '#label__title': 'LCNAF Name Label'
+        '#uri__title': 'LCNAF Name URL'
+        '#vocab': names
+        '#rdftype': ''
+    other_subjects_detail:
+      '#type': details
+      '#title': 'Other Subjects'
+      subject_other:
+        '#type': webform_custom_composite
+        '#title': 'Other Subjects'
+        '#multiple': 10
+        '#states_clear': false
+        '#multiple__min_items': 1
+        '#multiple__empty_items': 0
+        '#multiple__sorting': false
+        '#multiple__add_more': false
+        '#element':
+          label:
+            '#type': textfield
+            '#title': Label
+          uri:
+            '#type': textfield
+            '#title': URI
+    geographic_location_details:
+      '#type': details
+      '#title': 'Open Street Maps Location'
+      geographic_location:
+        '#type': webform_metadata_nominatim
+        '#title': 'Open Streets Maps Location'
+        '#description': 'Example: <em>Central Park, Manhattan, New York County, New York, United States of America</em>'
+        '#help_title': Help
+        '#help': |
+          This is meant to describe a geographic location closely related to this Digital Object. Such as the origin of the object, where it was created, etc.<br />
+          <br />
+          Example: <em>Central Park, Manhattan, New York County, New York, United States of America</em>
+        '#states_clear': false
+        '#format_items': ol
+        '#lat__access': true
+        '#lng__access': true
+        '#display_name__title': 'Display Name'
+        '#display_name__access': true
+        '#city__access': true
+        '#country__access': true
+  media:
+    '#type': webform_wizard_page
+    '#title': 'Upload Files'
+    '#open': true
+    '#prev_button_label': 'Back to previous step'
     images:
       '#type': webform_image_file
       '#title': 'Upload Image Files'
@@ -467,9 +540,6 @@ elements: |-
           - or
           - ':input[name="type"]':
               value: Conversation
-        invisible:
-          ':input[name="media_type"]':
-            value: Physical
       '#states_clear': false
       '#format_items': comma
       '#file_preview': file
@@ -486,9 +556,6 @@ elements: |-
           - or
           - ':input[name="type"]':
               value: Movie
-        invisible:
-          ':input[name="media_type"]':
-            value: Physical
       '#states_clear': false
       '#format_items': comma
       '#max_filesize': '512'
@@ -525,10 +592,6 @@ elements: |-
       '#type': webform_tus_file
       '#title': 'Upload Large Files via Multipart (TUS)'
       '#multiple': 2
-      '#states':
-        invisible:
-          ':input[name="media_type"]':
-            value: Physical
       '#file_placeholder': 'Upload a file via TUS'
       '#file_extensions': 'tiff tif mp4 mov zip warc warc.gz wacz'
       '#max_filesize_tus': '4000'

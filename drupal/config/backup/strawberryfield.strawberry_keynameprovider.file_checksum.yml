@@ -1,0 +1,13 @@
+uuid: 0dbf3a6f-ad51-4c4c-bd53-88e9aecc3096
+langcode: en
+status: true
+dependencies: {  }
+id: file_checksum
+label: 'NYPR file_checksum (from as:filetype)'
+pluginid: jmespath
+pluginconfig:
+  source_key: '"as:audio".*."checksum"'
+  is_date: false
+  is_date_range: false
+  exposed_key: file_checksum
+active: true

@@ -1,0 +1,13 @@
+uuid: fc1674a7-6597-4381-8423-859c7e9791b4
+langcode: en
+status: true
+dependencies: {  }
+id: annotations
+label: 'NYPR Annotations'
+pluginid: jmespath
+pluginconfig:
+  source_key: "annotations[*].[join(': ',[type||'',value||''])][], essence_tracks[].annotations[].[join(': ',[type||'',value||''])][]"
+  is_date: false
+  is_date_range: false
+  exposed_key: annotations
+active: true
