@@ -3,3 +3,5 @@ drupal/scripts/archipelago/deploy.sh merge=ours
 drupal/scripts/archipelago/update_deployed.sh merge=ours
 deploy/ec2-docker/docker-compose.yml merge=ours
 drupal/composer.json merge=ours
+drupal/config/sync/format_strawberryfield.iiif_settings.yml merge=ours
+drupal/config/sync/views.view.asset_children_as_table.yml merge=ours
