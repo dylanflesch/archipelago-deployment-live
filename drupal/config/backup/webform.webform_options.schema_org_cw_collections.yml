@@ -21,3 +21,7 @@ options: |-
   Segment: Segment
   Exhibit: Exhibit
   Box: Box
+  Series: Series
+  Painting: Painting
+  Photograph: Photograph
+  VisualArtwork: 'Visual Artwork'

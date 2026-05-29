@@ -12,12 +12,12 @@ dependencies:
 id: archipelago_subtheme_chiloe_digital_object_type
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -22
+weight: -28
 provider: null
 plugin: 'facet_block:descriptive_metadata_object_types'
 settings:
   id: 'facet_block:descriptive_metadata_object_types'
-  label: 'Object Type'
+  label: Type
   label_display: visible
   provider: facets
   context_mapping: {  }

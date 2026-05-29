@@ -169,3 +169,13 @@ type_to_viewmode:
     view_mode: digital_object_with_mirador_viewer
     active: true
     weight: 30
+  -
+    jsontype: PhysicalInstantiation
+    view_mode: digital_object_for_instantiations_nypr
+    active: true
+    weight: 35
+  -
+    jsontype: DigitalInstantiation
+    view_mode: digital_object_for_instantiations_nypr
+    active: true
+    weight: 36

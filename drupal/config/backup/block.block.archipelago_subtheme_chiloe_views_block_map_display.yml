@@ -14,7 +14,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_views_block_map_display
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -25
+weight: -31
 provider: null
 plugin: 'views_block:map_display_for_digital_objects_sql-block_1'
 settings:

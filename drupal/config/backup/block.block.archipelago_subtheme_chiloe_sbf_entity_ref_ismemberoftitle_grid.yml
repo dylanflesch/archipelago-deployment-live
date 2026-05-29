@@ -12,7 +12,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_sbf_entity_ref_ismemberoftitle_grid
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -16
+weight: -24
 provider: null
 plugin: 'facet_block:is_memberof_grid'
 settings:

@@ -14,3 +14,4 @@ options: |-
   Dataset: Dataset
   Physical_Object: 'Physical Object'
   Interactive_Resource: 'Interactive Resource'
+  Unknown: Unknown

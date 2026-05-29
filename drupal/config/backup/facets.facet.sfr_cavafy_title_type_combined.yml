@@ -1,23 +1,23 @@
-uuid: 8da2c5c2-4af5-44e9-a11a-ade436cc1d77
+uuid: 169bb10c-b689-43c7-8608-ab648debb0cb
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.default_solr_index
-    - views.view.solr_search_content
+    - views.view.solr_search_content_with_find_and_replace
   module:
     - search_api
-id: physical_format_for_search_page
-name: 'Physical format for Search Page'
+id: sfr_cavafy_title_type_combined
+name: '🍓 Strawberry (Descriptive Metadata source) » cavafy_title_type_combined'
 weight: 0
 min_count: 1
 missing: true
-missing_label: 'Not Physical'
-url_alias: physical_format
-facet_source_id: 'search_api:views_page__solr_search_content__page_1'
-field_identifier: physical_format
+missing_label: others
+url_alias: sfr_cavafy_title_type_combined
+facet_source_id: 'search_api:views_page__solr_search_content_with_find_and_replace__page_1'
+field_identifier: cavafy_title_type_combined
 query_operator: and
-hard_limit: 0
+hard_limit: 75
 exclude: false
 use_hierarchy: false
 keep_hierarchy_parents_active: false
@@ -30,7 +30,7 @@ widget:
   type: links
   config:
     show_numbers: true
-    soft_limit: 20
+    soft_limit: 50
     show_reset_link: true
     reset_text: 'Show all'
     hide_reset_when_no_selection: true
@@ -54,7 +54,7 @@ processor_configs:
     weights:
       pre_query: 50
     settings:
-      enabled: 0
+      enabled: 1
   count_widget_order:
     processor_id: count_widget_order
     weights:
@@ -72,12 +72,6 @@ processor_configs:
     weights:
       build: 100
     settings: {  }
-  replace:
-    processor_id: replace
-    weights:
-      post_query: 50
-    settings:
-      replacements: '!|Not physical'
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

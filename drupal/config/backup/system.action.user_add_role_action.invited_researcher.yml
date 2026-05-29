@@ -1,0 +1,14 @@
+uuid: 9a83b7d6-e737-4616-b034-de2ef77f2a30
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.invited_researcher
+  module:
+    - user
+id: user_add_role_action.invited_researcher
+label: 'Add the Invited Researcher role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: invited_researcher
