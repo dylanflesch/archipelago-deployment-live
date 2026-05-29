@@ -3,10 +3,11 @@ langcode: en
 status: true
 dependencies: {  }
 id: agents_from_lod_and_local
-label: 'Agents from LoD and Local'
+label: 'NYPR Contributor Agents '
 pluginid: jmespath
 pluginconfig:
-  source_key: 'edm_agent[].name_label, creator_lod[].name_label, subject_lcnaf_personal_names[].label, subjects_local_personal_names, subject_lcnaf_corporate_names[].label, subject_lcnaf_personal_names[].label , viaf[].label'
+  source_key: 'contributor_lod[*].name_label'
   is_date: false
+  is_date_range: false
   exposed_key: name_label
 active: true

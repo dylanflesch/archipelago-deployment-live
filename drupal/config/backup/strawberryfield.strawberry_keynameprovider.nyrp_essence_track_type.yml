@@ -1,0 +1,13 @@
+uuid: a21f6ff8-e9e0-4acd-9c19-ff944028d1cf
+langcode: en
+status: true
+dependencies: {  }
+id: nyrp_essence_track_type
+label: 'NYRP Essence Track Type'
+pluginid: jmespath
+pluginconfig:
+  source_key: 'essence_tracks[].type[]'
+  is_date: false
+  is_date_range: false
+  exposed_key: essence_tracks_type
+active: true

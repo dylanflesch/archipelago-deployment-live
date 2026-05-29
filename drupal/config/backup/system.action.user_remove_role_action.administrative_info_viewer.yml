@@ -1,0 +1,14 @@
+uuid: f7f3380b-b762-4444-8ccc-85209ccacaa8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.administrative_info_viewer
+  module:
+    - user
+id: user_remove_role_action.administrative_info_viewer
+label: 'Remove the Administrative Info Viewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: administrative_info_viewer

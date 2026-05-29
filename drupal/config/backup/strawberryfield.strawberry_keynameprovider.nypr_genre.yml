@@ -1,0 +1,13 @@
+uuid: 53415a25-a31a-44a2-a8f5-78e770ee1e55
+langcode: en
+status: true
+dependencies: {  }
+id: nypr_genre
+label: 'NYPR Genres'
+pluginid: jmespath
+pluginconfig:
+  source_key: 'genres[*].label'
+  is_date: false
+  is_date_range: false
+  exposed_key: genres_label
+active: true

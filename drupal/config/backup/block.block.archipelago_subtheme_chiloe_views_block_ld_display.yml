@@ -14,7 +14,7 @@ dependencies:
 id: archipelago_subtheme_chiloe_views_block_ld_display
 theme: archipelago_subtheme_chiloe
 region: sidebar_first
-weight: -26
+weight: -32
 provider: null
 plugin: 'views_block:ld_display_for_digital_objects_sql-block_1'
 settings:

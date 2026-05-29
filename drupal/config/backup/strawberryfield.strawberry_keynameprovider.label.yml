@@ -1,0 +1,13 @@
+uuid: bae11f9f-72e1-457d-a2b7-05fe54b06ffb
+langcode: en
+status: true
+dependencies: {  }
+id: label
+label: 'NYPR Main label (exposed as "main_label")'
+pluginid: jmespath
+pluginconfig:
+  source_key: label
+  is_date: false
+  is_date_range: false
+  exposed_key: main_label
+active: true

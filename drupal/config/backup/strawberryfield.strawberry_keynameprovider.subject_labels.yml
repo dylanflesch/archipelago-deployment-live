@@ -3,10 +3,11 @@ langcode: en
 status: true
 dependencies: {  }
 id: subject_labels
-label: 'Subject Labels'
+label: 'NYPR Subject Labels (Names, LoC, and Other)'
 pluginid: jmespath
 pluginconfig:
-  source_key: 'subject_loc[*].label, subject_wikidata[*].label, subject_lcnaf_geographic_names[*].label,subject_temporal[*].label, subject_lcgft_terms[*].label, term_aat_getty[*].label, pubmed_mesh[*].label'
+  source_key: 'subject_loc[*].label, subject_lcnaf_names[*].label, subject_other[*].label'
   is_date: false
+  is_date_range: false
   exposed_key: subject_labels
 active: true

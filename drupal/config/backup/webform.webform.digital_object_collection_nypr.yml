@@ -140,6 +140,7 @@ elements: |-
     medium:
       '#type': select
       '#title': Medium
+      '#multiple': true
       '#help': 'For Digital Object Collections, recommended selections from the&nbsp;<a href="/admin/structure/webform/config/options/manage">predefined options</a>&nbsp;found in the Schema.org Creative Works list are: Collection, Creative Work Series (Compound Object/Collection), Newspaper, or Periodical.'
       '#options': medium
       '#states':
@@ -223,9 +224,9 @@ elements: |-
           display_name: entity_reference_solr_creativeworks
           arguments:
             - Collection
-    show:
+    series:
       '#type': entity_autocomplete
-      '#title': Show
+      '#title': Series
       '#unique': true
       '#states':
         invisible:
@@ -240,7 +241,7 @@ elements: |-
           view_name: ado_selection_by_type
           display_name: entity_reference_solr_creativeworks
           arguments:
-            - Show
+            - Series
     episode:
       '#type': entity_autocomplete
       '#title': Episode
