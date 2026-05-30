@@ -83,7 +83,7 @@ display:
           click_sort_column: value
           type: strawberry_metadata_formatter
           settings:
-            iiif_base_url: 'https://archipelago-staging.nyprarchives.org/cantaloupe/iiif/2'
+            iiif_base_url: 'https://archipelago-dev.nyprarchives.org/cantaloupe/iiif/2'
             iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
             use_iiif_globals: '1'
             label: 'Descriptive Metadata'
@@ -365,7 +365,7 @@ display:
           click_sort_column: value
           type: strawberry_metadata_formatter
           settings:
-            iiif_base_url: 'https://archipelago-staging.nyprarchives.org/cantaloupe/iiif/2'
+            iiif_base_url: 'https://archipelago-dev.nyprarchives.org/cantaloupe/iiif/2'
             iiif_base_url_internal: 'http://esmero-cantaloupe:8182/iiif/2'
             use_iiif_globals: '1'
             label: 'Descriptive Metadata'
