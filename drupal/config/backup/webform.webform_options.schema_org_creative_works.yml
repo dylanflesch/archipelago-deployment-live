@@ -7,6 +7,8 @@ label: 'Schema.org Creative Works'
 category: archipelago
 likert: false
 options: |-
+  DigitalInstantiation: DigitalInstantiation
+  PhysicalInstantiation: PhysicalInstantiation
   Article: Article
   Book: Book
   Dataset: Dataset
