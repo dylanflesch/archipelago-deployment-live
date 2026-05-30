@@ -155,9 +155,6 @@
             "archipelago/*": "source",
             "strawberryfield/*": "source",
             "*": "dist"
-        },
-        "audit": {
-            "block-insecure": false
         }
     },
     "autoload": {
