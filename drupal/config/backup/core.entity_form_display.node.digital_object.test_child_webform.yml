@@ -1,8 +1,9 @@
-uuid: 32ffc483-19dd-4223-8f6e-d2c3ed560ec0
+uuid: cc1ca5a1-2249-4c02-9f2f-9603e25c3d71
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_form_mode.node.test_child_webform
     - field.field.node.digital_object.body
     - field.field.node.digital_object.field_descriptive_metadata
     - node.type.digital_object
@@ -17,17 +18,17 @@ third_party_settings:
     id: layout_onecol
     settings:
       label: ''
-id: node.digital_object.default
+id: node.digital_object.test_child_webform
 targetEntityType: node
 bundle: digital_object
-mode: default
+mode: test_child_webform
 content:
   field_descriptive_metadata:
     type: strawberryfield_webform_inline_widget
     weight: 0
     region: content
     settings:
-      placeholder: 'Instantiation Metadata'
+      placeholder: 'Descriptive Metadata'
       webform_id: nypr_insta_essences_metadata
       render_always: false
       hide_cancel: false

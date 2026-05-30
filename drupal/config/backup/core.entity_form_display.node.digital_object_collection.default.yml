@@ -33,8 +33,8 @@ content:
     weight: 0
     region: content
     settings:
-      placeholder: 'Collection Metadata'
-      webform_id: digital_object_collection_nypr
+      placeholder: 'Asset (Parent) Metadata'
+      webform_id: nypr_assets_parents_metadata
       render_always: false
       hide_cancel: false
     third_party_settings: {  }
