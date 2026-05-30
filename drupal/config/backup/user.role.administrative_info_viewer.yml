@@ -1,9 +1,0 @@
-uuid: b32d5786-da0b-4fdf-9b4e-430324c95c9f
-langcode: en
-status: true
-dependencies: {  }
-id: administrative_info_viewer
-label: 'Administrative Info Viewer'
-weight: 7
-is_admin: null
-permissions: {  }

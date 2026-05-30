@@ -1,8 +1,0 @@
-uuid: 4a9d0f54-8573-4694-b898-5b655a9ce3bd
-langcode: en
-status: true
-dependencies: {  }
-id: login-options-nypr
-label: 'Login Options NYPR'
-description: ''
-locked: false
