@@ -2,6 +2,9 @@ uuid: 225c912f-25c7-4877-87e8-2498dd37d332
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.digital_object
+    - node.type.digital_object_collection
   module:
     - node
 id: digital_object_uuid
@@ -12,7 +15,6 @@ selection_criteria:
   b81bd56a-c753-4756-9aff-a39dacf31da6:
     id: 'entity_bundle:node'
     negate: false
-    uuid: b81bd56a-c753-4756-9aff-a39dacf31da6
     context_mapping:
       node: node
     bundles:
