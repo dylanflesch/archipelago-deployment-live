@@ -1,10 +1,11 @@
 uuid: 06ba18cc-da40-4fce-b9e6-25b8314c732c
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - format_strawberryfield
     - node
+    - system
     - user
   theme:
     - archipelago_subtheme_chiloe
@@ -37,3 +38,7 @@ visibility:
     bundles:
       digital_object: digital_object
       digital_object_collection: digital_object_collection
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/node/*/edit/*\r\n/node/*/edit"
