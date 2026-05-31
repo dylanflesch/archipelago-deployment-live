@@ -12,6 +12,9 @@ NYPR Commons is the digital repository of New York Public Radio's Media Library 
 
 ## Updates:
 
+May 30, 2026: 
+Simplified branches to have just MAIN instead of dev, staging, production. Will manage changes in feature, issue, chore, etc branches which will be PRd into main.
+
 May 2026:
 Updated this README.md, testing new change management pipeline.
 
