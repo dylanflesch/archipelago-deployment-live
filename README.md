@@ -31,7 +31,8 @@ From `/home/ec2-user/archipelago-deployment-live/`:
     git pull --no-ff --no-edit
 
     # 2. Create a feature branch
-    git checkout -b chore/your-branch-name
+    git fetch origin
+    git checkout -b chore/your-branch-name origin/main
 
     # 3. Make your changes
     nano README.md  # or whatever files you're editing
