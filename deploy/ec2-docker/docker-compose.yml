@@ -51,7 +51,6 @@ services:
     volumes:
       - ${ARCHIPELAGO_ROOT}/config_storage/php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf~
       - ${ARCHIPELAGO_ROOT}/drupal:/var/www/html:cached
-      - /data_migration:/data_migration
     environment:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
