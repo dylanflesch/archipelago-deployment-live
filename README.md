@@ -28,6 +28,8 @@ If planning a more significant change that you'd like to do A-B user testing on 
 From `/home/ec2-user/archipelago-deployment-live/`:
 
     # 1. Make sure local main is up to date
+    git status
+    git diff
     git pull --no-ff --no-edit
 
     # 2. Create a feature branch
@@ -43,18 +45,26 @@ From `/home/ec2-user/archipelago-deployment-live/`:
 
 
 ### On GitHub
-    5. Open PR: chore/your-branch-name → main
-    6. Review and merge PR
-    7. Delete the feature branch (button after merge)
+5. Open PR: chore/your-branch-name → main
+6. Review and merge PR
+7. Delete the feature branch (button after merge)
 
 ### On production EC2
 From `/home/ec2-user/archipelago-deployment-live/`:
 
     # 8. Pull to production
+    git diff HEAD origin/main
     git pull
 
 ### On dev and staging EC2s
-    # 9. On dev and staging — sync local main when convenient
+    # 9. On dev return to main, sync, and cleanup
+    git checkout main
+    git pull --no-ff --no-edit
+    git branch -D chore/your-branch-name
+
+    # 10. On staging
+    git status
+    git diff
     git pull --no-ff --no-edit
 
 ### Important Notes
