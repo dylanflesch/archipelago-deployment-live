@@ -24,7 +24,7 @@ February 2026 Upgraded to Drupal 10.6.3 and Archipelago 1.6.0 (from 1.5) and upd
 
 ## Git Workflow for Regular Changes
 
-### On dev EC2 (ip-172-31-12-134)
+### On dev EC2
 From `/home/ec2-user/archipelago-deployment-live/`:
 
     # 1. Make sure local main is up to date
@@ -41,7 +41,7 @@ From `/home/ec2-user/archipelago-deployment-live/`:
     git commit -m "chore: description of change"
     git push origin chore/your-branch-name
 
-### On staging EC2 (ip-172-31-4-159) — test BEFORE merging to main
+### On staging EC2 — test BEFORE merging to main
 From `/home/ec2-user/archipelago-deployment-live/`:
 
     # 5. Check out the feature branch on staging
@@ -69,7 +69,7 @@ From `/home/ec2-user/archipelago-deployment-live/`:
     # 11. Pull the merged change
     git pull --no-ff --no-edit
 
-### On production EC2 (ip-172-31-34-119)
+### On production EC2
 From `/home/ec2-user/archipelago-deployment-live/`:
 
     # 12. Pull to production
