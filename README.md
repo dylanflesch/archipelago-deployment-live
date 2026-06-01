@@ -44,7 +44,7 @@ From `/home/ec2-user/archipelago-deployment-live/`:
     git push origin chore/your-branch-name
 
 
-### On GitHub
+### On GitHub (choose base repository dylanflesch/archipelago-deployment/live and branch: main)
 5. Open PR: chore/your-branch-name → main
 6. Review and merge PR
 7. Delete the feature branch (button after merge)
@@ -53,6 +53,7 @@ From `/home/ec2-user/archipelago-deployment-live/`:
 From `/home/ec2-user/archipelago-deployment-live/`:
 
     # 8. Pull to production
+    git fetch origin
     git diff HEAD origin/main
     git pull
 
