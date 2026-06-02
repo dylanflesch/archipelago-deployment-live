@@ -22,4 +22,4 @@ config_storage/nginxconfig/template/ipdeny.include.template
 config_storage/anubisconfig/*.yaml
 config_storage/nginxconfig/template/nginx.conf.template
 drupal/config/backup/
-/home/ec2-user/archipelago-deployment-live/drupal/config/metadata-displays/twig-backup
+drupal/config/metadata-displays/twig-backup
