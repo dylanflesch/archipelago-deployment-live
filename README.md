@@ -99,7 +99,7 @@ git push origin chore/your-branch-name
 
 #### Step 6 — Open a pull request
 
-- Choose repository: `dylanflesch/archipelago-deployment-live`
+- Choose repository: `nypublicradio/archipelago-deployment-live`
 - Select base branch: `main`
 - Open a pull request from `chore/your-branch-name` → `main`
 - Review the diff and verify only intended files are changed
