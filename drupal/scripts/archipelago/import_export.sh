@@ -114,7 +114,7 @@ import_data() {
       echo 'Metadata Display Entity exists. Updating.'
       curl -w "\n" -H 'Accept: application/vnd.api+json' -H 'Content-type: application/vnd.api+json' -XPATCH "$json_api_endpoint"/"$import_id" --data-binary @$f -K - "$json_api_endpoint"/"$import_id" <<< "user = \"$username:$password\"";
     else
-      echo 'Metadata Display Entity exists. Importing.'
+      echo 'Metadata Display Entity does not exist. Importing.'
       curl -w "\n" -H 'Accept: application/vnd.api+json' -H 'Content-type: application/vnd.api+json' -XPOST "$json_api_endpoint" --data-binary @"$f" -K - "$json_api_endpoint" <<< "user = \"$username:$password\"";
     fi
   done
