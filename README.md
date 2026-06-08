@@ -44,9 +44,10 @@ If planning a more significant change that you'd like to do A-B user testing on,
 
 From `/home/ec2-user/archipelago-deployment-live/`:
 
-#### Step 1 — Make sure local main is up to date
+#### Step 1 — Check your branch, and make sure local main is up to date
 
 ```bash
+git branch --show-current
 git status
 git diff
 git pull --no-ff --no-edit
@@ -76,6 +77,8 @@ For file-only changes (README, scripts, etc.), edit files directly with your pre
 ```bash
 git diff --name-only
 ```
+
+The checkouts below are necessary only when you've done a drush export.
 
 ```bash
 git checkout -- drupal/config/sync/format_strawberryfield.iiif_settings.yml
