@@ -12,6 +12,10 @@ NYPR Commons is the digital repository of New York Public Radio's Media Library 
 
 ## Updates
 
+### July 7, 2026
+
+- Upgraded from Archipelago 1.6.0 to 2.1.0 and Drupal 10.6.8 to 11.3.13.
+
 ### June 1, 2026
 
 - Updated README.md to include dev-ops recommendations for change management in our environments.
