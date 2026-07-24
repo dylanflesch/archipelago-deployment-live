@@ -1,0 +1,29 @@
+uuid: 8461a806-f909-4898-80fd-ec2f7625a314
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: node_media_player_overrides
+label: 'Node Media Player Overrides'
+code: |-
+  .sbf_media_control .subtitleScrollableContainer {
+    min-height: 10rem;
+    height: 20rem;
+  }
+  @media (max-width: 768px) {
+    .sbf_media_control .subtitleScrollableContainer {
+       min-height: 4rem;
+       height: calc(30vh - 60px); 
+       height: calc(30dvh - 60px); 
+    }
+  }
+media: all
+preprocess: true
+conditions:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/node/*\r\n/do/*"
+contexts: {  }
+conditions_require_all: true
