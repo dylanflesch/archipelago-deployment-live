@@ -110,6 +110,7 @@ permissions:
   - 'edit own digital_object_collection content'
   - 'edit own page content'
   - 'edit terms in tags'
+  - 'rebuild node access permissions'
   - 'translate any entity'
   - 'update content translations'
   - 'update media'

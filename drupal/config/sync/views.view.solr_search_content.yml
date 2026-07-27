@@ -452,10 +452,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              metadata_api: '0'
-              metadata_pro: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: ''
@@ -759,10 +755,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              replicator: '0'
-              administrator: '0'
-              metadata_pro: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -965,11 +957,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              metadata_api: '0'
-              metadata_pro: '0'
-              nypr_staff: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: ''
@@ -1716,10 +1703,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              metadata_api: '0'
-              metadata_pro: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: ''
@@ -2433,10 +2416,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              metadata_api: '0'
-              metadata_pro: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: ''

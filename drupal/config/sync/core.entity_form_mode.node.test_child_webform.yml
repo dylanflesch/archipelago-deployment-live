@@ -6,6 +6,6 @@ dependencies:
     - node
 id: node.test_child_webform
 label: 'Test Child Webform'
-description: ''
+description: null
 targetEntityType: node
 cache: true

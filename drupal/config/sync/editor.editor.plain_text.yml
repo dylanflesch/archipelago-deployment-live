@@ -1,12 +1,12 @@
-uuid: 63bf069f-e3af-4e8c-af50-86a9d4682180
+uuid: 6a8e8525-29e2-46b1-a6c0-e08dd6bf3173
 langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.basic_html
+    - filter.format.plain_text
   module:
     - codemirror_editor
-format: basic_html
+format: plain_text
 editor: codemirror_editor
 settings:
   toolbar: true

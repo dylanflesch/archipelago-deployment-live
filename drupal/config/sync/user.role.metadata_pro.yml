@@ -110,6 +110,7 @@ permissions:
   - 'moderated content bulk publish'
   - 'moderated content bulk unpublish'
   - 'process amiset entity'
+  - 'rebuild node access permissions'
   - 'revert all revisions'
   - 'revert digital_object revisions'
   - 'revert digital_object_collection revisions'
