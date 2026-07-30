@@ -153,7 +153,8 @@
         "frictionlessdata/datapackage": "dev-ISSUE-56 as dev-main",
         "frictionlessdata/tableschema": "dev-ISSUE-78 as v1.2.3",
         "devizzent/cebe-php-openapi": "dev-master",
-        "drupal/config_batch_export": "^2.0"
+        "drupal/config_batch_export": "^2.0",
+        "drupal/ckeditor_lts": "^1.0"
     },
     "require-dev": {
         "drupal/core-dev": "^11.3",
