@@ -275,6 +275,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_descriptive_metadata
+  former_box_label:
+    label: '🍓 Strawberry (Descriptive Metadata source) » former_box_label'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:former_box_label'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
   fulltext:
     label: 'SBF Unmodified data body no highlight'
     datasource_id: strawberryfield_flavor_datasource
@@ -321,6 +329,14 @@ field_settings:
     label: '🍓 Strawberry (Descriptive Metadata source) » ismemberof'
     datasource_id: 'entity:node'
     property_path: 'field_descriptive_metadata:ismemberof'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  item_barcode:
+    label: '🍓 Strawberry (Descriptive Metadata source) » item_barcode'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:item_barcode'
     type: string
     dependencies:
       config:
@@ -378,6 +394,14 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: 'field_descriptive_metadata:local_identifiers'
     type: text
+    dependencies:
+      config:
+        - field.storage.node.field_descriptive_metadata
+  location_barcode:
+    label: '🍓 Strawberry (Descriptive Metadata source) » location_barcode'
+    datasource_id: 'entity:node'
+    property_path: 'field_descriptive_metadata:location_barcode'
+    type: string
     dependencies:
       config:
         - field.storage.node.field_descriptive_metadata

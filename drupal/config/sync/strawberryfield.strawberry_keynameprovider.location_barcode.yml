@@ -1,0 +1,13 @@
+uuid: a009a30d-6430-4ba8-8cb4-6a58d219ff1c
+langcode: en
+status: true
+dependencies: {  }
+id: location_barcode
+label: 'NYPR location_barcode'
+pluginid: jmespath
+pluginconfig:
+  source_key: location_barcode
+  is_date: false
+  is_date_range: false
+  exposed_key: location_barcode
+active: true

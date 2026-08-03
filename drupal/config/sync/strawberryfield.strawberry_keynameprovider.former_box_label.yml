@@ -1,0 +1,13 @@
+uuid: a407856f-e422-4d09-b0a0-b3ece20015de
+langcode: en
+status: true
+dependencies: {  }
+id: former_box_label
+label: 'NYPR former_box_label'
+pluginid: jmespath
+pluginconfig:
+  source_key: former_box_label
+  is_date: false
+  is_date_range: false
+  exposed_key: former_box_label
+active: true
