@@ -1,0 +1,13 @@
+uuid: ad4c2cc6-43c0-42d3-a77a-85410e785a37
+langcode: en
+status: true
+dependencies: {  }
+id: item_barcode
+label: 'NYPR item_barcode'
+pluginid: jmespath
+pluginconfig:
+  source_key: item_barcode
+  is_date: false
+  is_date_range: false
+  exposed_key: item_barcode
+active: true
